@@ -1,5 +1,6 @@
 {
   "nav.home": "홈",
+  "nav.work": "워크",
   "nav.resume": "이력서",
   "nav.portfolio": "포트폴리오",
   "nav.life": "라이프",
@@ -8,7 +9,7 @@
   "hero.tagline": "소프트웨어 엔지니어",
   "hero.bio": "모바일 게임부터 백엔드 시스템까지, 다양한 소프트웨어를 만들고 있습니다. 한국 기반.",
 
-  "home.section.career": "커리어",
+  "home.section.work": "워크",
   "home.section.life": "라이프",
   "life.subtitle": "업무 외에 만드는 게임과 활동들",
 

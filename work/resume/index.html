@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Jongwon Lee — Resume">
   <meta name="base-url" content="">
-  <title>Resume — Jongwon Lee</title>
+  <title>Resume — jlee</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/components.css">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <style>
     .resume-layout {
@@ -61,11 +63,32 @@
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a href="/" class="nav-logo">JL</a>
+      <a href="/" class="nav-logo" aria-label="Home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </a>
       <div class="nav-links">
-        <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
-        <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-        <a href="/life/" data-i18n="nav.life">Life</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            <span data-i18n="nav.work">Work</span>
+            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
+            <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            <span data-i18n="nav.life">Life</span>
+            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="/life/on-the-line/">On The Line</a>
+          </div>
+        </div>
         <button class="lang-toggle" aria-label="Switch language">KO</button>
       </div>
       <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
@@ -75,9 +98,15 @@
   </nav>
 
   <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
-    <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-    <a href="/life/" data-i18n="nav.life">Life</a>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-label" data-i18n="nav.work">Work</div>
+      <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
+      <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-label" data-i18n="nav.life">Life</div>
+      <a href="/life/on-the-line/">On The Line</a>
+    </div>
     <button class="lang-toggle" aria-label="Switch language">KO</button>
   </div>
 
