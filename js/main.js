@@ -1,9 +1,10 @@
 /**
- * main.js — mobile nav toggle, active nav link, misc UI
+ * main.js — mobile nav toggle, dropdown nav, active nav link, misc UI
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
+  initDropdowns();
   setActiveNavLink();
 });
 
@@ -41,16 +42,59 @@ function initMobileNav() {
   }
 }
 
+/* ── Desktop dropdown navigation ── */
+
+function initDropdowns() {
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (!dropdowns.length) return;
+
+  dropdowns.forEach(dropdown => {
+    const btn = dropdown.querySelector('.nav-dropdown-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+
+      // Close other dropdowns
+      dropdowns.forEach(other => {
+        if (other !== dropdown) {
+          other.classList.remove('open');
+          other.querySelector('.nav-dropdown-btn')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  });
+
+  // Close all on outside click
+  document.addEventListener('click', () => {
+    dropdowns.forEach(dropdown => {
+      dropdown.classList.remove('open');
+      dropdown.querySelector('.nav-dropdown-btn')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close all on Esc
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      dropdowns.forEach(dropdown => {
+        dropdown.classList.remove('open');
+        dropdown.querySelector('.nav-dropdown-btn')?.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+}
+
 /* ── Active nav link ── */
 
 function setActiveNavLink() {
   const path = window.location.pathname;
 
-  document.querySelectorAll('.nav-links a, .nav-mobile-menu a').forEach(link => {
+  document.querySelectorAll('.nav-dropdown-menu a, .mobile-nav-group a').forEach(link => {
     const href = link.getAttribute('href');
     if (!href) return;
 
-    // Exact root match
     if (href === '/' || href === '/index.html') {
       if (path === '/' || path === '/index.html') {
         link.classList.add('active');
@@ -58,10 +102,14 @@ function setActiveNavLink() {
       return;
     }
 
-    // Section match (e.g. /resume/ matches /resume/index.html)
     const section = href.replace(/\/$/, '').replace('/index.html', '');
     if (section && path.startsWith(section)) {
       link.classList.add('active');
+      // Mark parent dropdown button as active
+      const parentDropdown = link.closest('.nav-dropdown');
+      if (parentDropdown) {
+        parentDropdown.querySelector('.nav-dropdown-btn')?.classList.add('active');
+      }
     }
   });
 }

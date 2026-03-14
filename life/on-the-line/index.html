@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Privacy Policy — On The Line: Puzzle Game">
+  <meta name="description" content="On The Line: Puzzle Game — A minimalist puzzle game by Jongwon Lee">
   <meta name="base-url" content="">
-  <title>Privacy Policy — jlee</title>
+  <title>On The Line — jlee</title>
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,11 +18,61 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/components.css">
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-
   <style>
-    .legal-wrap {
-      max-width: 720px;
+    .game-hero {
+      padding: var(--space-16) 0 var(--space-12);
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--space-12);
+    }
+
+    .game-hero h1 {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-3);
+    }
+
+    .game-hero p {
+      color: var(--color-text-muted);
+      max-width: 480px;
+      margin-bottom: var(--space-8);
+    }
+
+    .game-hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    .game-meta-links {
+      display: flex;
+      gap: var(--space-5);
+      margin-top: var(--space-10);
+    }
+
+    .game-meta-links a {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      transition: color var(--transition-fast);
+    }
+
+    .game-meta-links a:hover {
+      color: var(--color-accent);
+    }
+
+    .game-screenshot {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 9/16;
+      background: var(--color-bg-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-12);
     }
   </style>
 </head>
@@ -86,59 +138,25 @@
           </svg>
         </a>
         <span class="breadcrumb-sep">/</span>
-        <a href="/life/on-the-line/">On The Line</a>
-        <span class="breadcrumb-sep">/</span>
-        <span data-i18n="games.privacy">Privacy Policy</span>
+        <span>On The Line</span>
       </div>
 
-      <div class="legal-wrap">
-        <div class="page-hero">
-          <h1 data-i18n="privacy.title">Privacy Policy</h1>
-          <p><span data-i18n="privacy.updated">Last updated</span>: March 2025</p>
+      <div class="game-hero">
+        <h1>On The Line: Puzzle Game</h1>
+        <p>A minimalist puzzle game. Draw lines to solve increasingly challenging levels.</p>
+        <div class="game-hero-links">
+          <a href="https://apps.apple.com/app/id6760333150" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="games.appstore">App Store</a>
         </div>
+      </div>
 
-        <div class="legal-content">
-          <p data-i18n="privacy.intro">This privacy policy describes how we collect, use, and protect your information when you use our application.</p>
+      <div class="game-screenshot">
+        <!-- Screenshot placeholder — replace with: <img src="/assets/images/on-the-line.png" alt="On The Line gameplay"> -->
+        Screenshot
+      </div>
 
-          <h2 data-i18n="privacy.section1.title">Information We Collect</h2>
-          <p data-i18n="privacy.section1.body">We may collect the following types of information:</p>
-          <ul>
-            <li data-i18n="privacy.section1.item1">Device information (device type, operating system version)</li>
-            <li data-i18n="privacy.section1.item2">Usage data (game progress, session duration) stored locally on your device</li>
-            <li data-i18n="privacy.section1.item3">Advertising identifiers for ad personalization (via Google AdMob)</li>
-          </ul>
-
-          <h2 data-i18n="privacy.section2.title">How We Use Your Information</h2>
-          <p data-i18n="privacy.section2.body">We use the collected information to:</p>
-          <ul>
-            <li data-i18n="privacy.section2.item1">Provide and improve the application experience</li>
-            <li data-i18n="privacy.section2.item2">Display relevant advertisements through Google AdMob</li>
-            <li data-i18n="privacy.section2.item3">Analyze usage patterns to improve app performance</li>
-          </ul>
-
-          <h2 data-i18n="privacy.section3.title">Third-Party Services</h2>
-          <p data-i18n="privacy.section3.body">Our app uses the following third-party services that may collect data:</p>
-          <ul>
-            <li>
-              <span data-i18n="privacy.section3.admob">Google AdMob — for displaying advertisements.</span>
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" data-i18n="privacy.section3.admob_link">Google Privacy Policy</a>
-            </li>
-          </ul>
-
-          <h2 data-i18n="privacy.section4.title">Data Retention</h2>
-          <p data-i18n="privacy.section4.body">Game progress and settings are stored locally on your device and are deleted when you uninstall the app. We do not retain your data on our servers.</p>
-
-          <h2 data-i18n="privacy.section5.title">Children's Privacy</h2>
-          <p data-i18n="privacy.section5.body">Our application is not directed to children under the age of 13. We do not knowingly collect personal information from children.</p>
-
-          <h2 data-i18n="privacy.section6.title">Your Rights</h2>
-          <p data-i18n="privacy.section6.body">You have the right to opt out of personalized advertising through your device settings. On iOS, go to Settings > Privacy & Security > Tracking. On Android, go to Settings > Google > Ads.</p>
-
-          <h2 data-i18n="privacy.section7.title">Contact Us</h2>
-          <p data-i18n="privacy.section7.body">If you have any questions about this privacy policy, please contact us at:</p>
-          <!-- Replace with your actual contact email -->
-          <p><a href="mailto:root.jlee@gmail.com">root.jlee@gmail.com</a></p>
-        </div>
+      <div class="game-meta-links">
+        <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
+        <a href="/life/on-the-line/support.html" data-i18n="games.support">Support</a>
       </div>
 
     </div>
@@ -148,7 +166,7 @@
     <div class="container footer-inner">
       <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
       <div class="footer-links">
-        <a href="/life/on-the-line/">On The Line</a>
+        <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
         <a href="/life/on-the-line/support.html" data-i18n="games.support">Support</a>
       </div>
     </div>

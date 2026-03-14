@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Support — On The Line: Puzzle Game">
   <meta name="base-url" content="">
-  <title>Support — On The Line</title>
+  <title>Support — jlee</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/components.css">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <style>
     .faq-list {
@@ -48,11 +50,32 @@
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a href="/" class="nav-logo">JL</a>
+      <a href="/" class="nav-logo" aria-label="Home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </a>
       <div class="nav-links">
-        <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
-        <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-        <a href="/life/" data-i18n="nav.life">Games</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            <span data-i18n="nav.work">Work</span>
+            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
+            <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            <span data-i18n="nav.life">Life</span>
+            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="/life/on-the-line/">On The Line</a>
+          </div>
+        </div>
         <button class="lang-toggle" aria-label="Switch language">KO</button>
       </div>
       <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
@@ -62,9 +85,15 @@
   </nav>
 
   <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
-    <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-    <a href="/life/" data-i18n="nav.life">Games</a>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-label" data-i18n="nav.work">Work</div>
+      <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
+      <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-label" data-i18n="nav.life">Life</div>
+      <a href="/life/on-the-line/">On The Line</a>
+    </div>
     <button class="lang-toggle" aria-label="Switch language">KO</button>
   </div>
 
@@ -72,11 +101,14 @@
     <div class="container">
 
       <div class="breadcrumb">
-        <a href="/" data-i18n="nav.home">Home</a>
+        <a href="/" aria-label="Home">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </a>
         <span class="breadcrumb-sep">/</span>
-        <a href="/life/" data-i18n="nav.life">Games</a>
-        <span class="breadcrumb-sep">/</span>
-        <span>On The Line</span>
+        <a href="/life/on-the-line/">On The Line</a>
         <span class="breadcrumb-sep">/</span>
         <span data-i18n="games.support">Support</span>
       </div>
@@ -132,7 +164,7 @@
     <div class="container footer-inner">
       <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
       <div class="footer-links">
-        <a href="/life/" data-i18n="nav.life">Games</a>
+        <a href="/life/on-the-line/">On The Line</a>
         <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
       </div>
     </div>
