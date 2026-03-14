@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jongwon Lee — Life">
+  <meta name="base-url" content="">
+  <title>Life — Jongwon Lee</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">JL</a>
+      <div class="nav-links">
+        <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
+        <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="/life/" data-i18n="nav.life">Life</a>
+        <button class="lang-toggle" aria-label="Switch language">KO</button>
+      </div>
+      <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
+    <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="/life/" data-i18n="nav.life">Life</a>
+    <button class="lang-toggle" aria-label="Switch language">KO</button>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="page-hero">
+        <h1 data-i18n="home.section.life">Life</h1>
+        <p data-i18n="life.subtitle">Games and things I make outside of work</p>
+      </div>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="games-grid">
+
+          <!--
+            TO ADD a new item:
+            1. Create life/[slug]/ with index.html, privacy.html, support.html
+            2. Copy this card block and update the content
+            3. Add locale strings to en.json and ko.json
+          -->
+
+          <!-- On The Line: Puzzle Game -->
+          <div class="game-card">
+            <div class="game-card-image">
+              <!-- Replace with actual screenshot: <img src="/assets/images/on-the-line.png" alt="On The Line"> -->
+              On The Line
+            </div>
+            <div class="game-card-body">
+              <div class="game-card-title">On The Line: Puzzle Game</div>
+              <div class="game-card-desc">A minimalist puzzle game. Draw lines to solve increasingly challenging levels.</div>
+              <div class="game-card-links">
+                <a href="https://apps.apple.com/app/id6760333150" target="_blank" rel="noopener noreferrer" data-i18n="games.appstore">App Store</a>
+                <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
+                <a href="/life/on-the-line/support.html" data-i18n="games.support">Support</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/jleesdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jongwon Lee — Resume">
+  <meta name="base-url" content="">
+  <title>Resume — Jongwon Lee</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <style>
+    .resume-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: var(--space-12);
+      align-items: start;
+    }
+
+    .resume-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + var(--space-8));
+    }
+
+    .sidebar-card {
+      background: var(--color-bg-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-4);
+    }
+
+    .sidebar-card-title {
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+
+    @media (max-width: 900px) {
+      .resume-layout {
+        grid-template-columns: 1fr;
+      }
+      .resume-sidebar {
+        position: static;
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">JL</a>
+      <div class="nav-links">
+        <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
+        <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="/life/" data-i18n="nav.life">Life</a>
+        <button class="lang-toggle" aria-label="Switch language">KO</button>
+      </div>
+      <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
+    <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="/life/" data-i18n="nav.life">Life</a>
+    <button class="lang-toggle" aria-label="Switch language">KO</button>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="page-hero">
+        <h1 data-i18n="resume.title">Resume</h1>
+        <p data-i18n="resume.subtitle">Experience, education, and skills</p>
+      </div>
+
+      <div class="resume-layout">
+        <!-- Main content -->
+        <div>
+
+          <!-- Experience -->
+          <section class="section" style="padding-top: 0;">
+            <div class="section-header">
+              <h2 class="section-title" data-i18n="resume.section.experience">Experience</h2>
+            </div>
+            <div class="timeline">
+              <!--
+                TO ADD: Copy this block for each position.
+                <div class="timeline-item">
+                  <div class="timeline-date">2022 – Present</div>
+                  <div class="timeline-title">Job Title</div>
+                  <div class="timeline-org">Company Name</div>
+                  <div class="timeline-body">Description of responsibilities and achievements.</div>
+                </div>
+              -->
+              <div class="timeline-item">
+                <div class="timeline-date">2021 – Present</div>
+                <div class="timeline-title">Software Engineer</div>
+                <div class="timeline-org">—</div>
+                <div class="timeline-body">
+                  <!-- Fill in your experience here -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <hr class="divider">
+
+          <!-- Education -->
+          <section class="section">
+            <div class="section-header">
+              <h2 class="section-title" data-i18n="resume.section.education">Education</h2>
+            </div>
+            <div class="timeline">
+              <!--
+                TO ADD: Copy this block for each degree.
+              -->
+              <div class="timeline-item">
+                <div class="timeline-date">—</div>
+                <div class="timeline-title">—</div>
+                <div class="timeline-org">—</div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="resume-sidebar">
+
+          <!-- Download -->
+          <div class="sidebar-card">
+            <div class="sidebar-card-title" data-i18n="resume.download">Download PDF</div>
+            <!-- Replace href with actual PDF path once uploaded -->
+            <a href="#" class="btn btn-primary" style="width:100%; justify-content:center;" data-i18n="resume.download">Download PDF</a>
+          </div>
+
+          <!-- Skills -->
+          <div class="sidebar-card">
+            <div class="sidebar-card-title" data-i18n="resume.section.skills">Skills</div>
+
+            <div style="margin-bottom: var(--space-5);">
+              <div class="skill-group-title">Languages</div>
+              <div class="skill-tags">
+                <!-- TO ADD: fill in your languages -->
+                <span class="tag">—</span>
+              </div>
+            </div>
+
+            <div style="margin-bottom: var(--space-5);">
+              <div class="skill-group-title">Frameworks & Tools</div>
+              <div class="skill-tags">
+                <!-- TO ADD: fill in your tools -->
+                <span class="tag">—</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="skill-group-title">Platforms</div>
+              <div class="skill-tags">
+                <!-- TO ADD: fill in your platforms -->
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Links</div>
+            <div class="footer-links" style="flex-direction: column; align-items: flex-start; gap: var(--space-3);">
+              <a href="https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/" target="_blank" rel="noopener noreferrer">
+                LinkedIn ↗
+              </a>
+              <a href="https://github.com/jleesdev" target="_blank" rel="noopener noreferrer">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/jleesdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

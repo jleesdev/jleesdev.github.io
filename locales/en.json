@@ -1,0 +1,88 @@
+{
+  "nav.home": "Home",
+  "nav.resume": "Resume",
+  "nav.portfolio": "Portfolio",
+  "nav.life": "Life",
+
+  "hero.name": "JONGWON LEE",
+  "hero.tagline": "Software Engineer",
+  "hero.bio": "I build software — from mobile games to backend systems. Based in Korea.",
+
+  "home.section.career": "Career",
+  "home.section.life": "Life",
+  "life.subtitle": "Games and things I make outside of work",
+
+  "home.section.title": "Explore",
+  "home.card.resume.title": "Resume",
+  "home.card.resume.desc": "Work experience, education, and skills.",
+  "home.card.portfolio.title": "Portfolio",
+  "home.card.portfolio.desc": "Projects and things I've built.",
+  "home.card.games.title": "Games",
+  "home.card.games.desc": "Mobile games I've made and published.",
+
+  "resume.title": "Resume",
+  "resume.subtitle": "Experience, education, and skills",
+  "resume.section.experience": "Experience",
+  "resume.section.education": "Education",
+  "resume.section.skills": "Skills",
+  "resume.download": "Download PDF",
+
+  "portfolio.title": "Portfolio",
+  "portfolio.subtitle": "Things I've designed and built",
+
+  "games.title": "Games",
+  "games.subtitle": "Mobile games I've published",
+  "games.appstore": "App Store",
+  "games.privacy": "Privacy Policy",
+  "games.support": "Support",
+
+  "privacy.title": "Privacy Policy",
+  "privacy.updated": "Last updated",
+  "privacy.intro": "This privacy policy describes how we collect, use, and protect your information when you use our application.",
+
+  "privacy.section1.title": "Information We Collect",
+  "privacy.section1.body": "We may collect the following types of information:",
+  "privacy.section1.item1": "Device information (device type, operating system version)",
+  "privacy.section1.item2": "Usage data (game progress, session duration) stored locally on your device",
+  "privacy.section1.item3": "Advertising identifiers for ad personalization (via Google AdMob)",
+
+  "privacy.section2.title": "How We Use Your Information",
+  "privacy.section2.body": "We use the collected information to:",
+  "privacy.section2.item1": "Provide and improve the application experience",
+  "privacy.section2.item2": "Display relevant advertisements through Google AdMob",
+  "privacy.section2.item3": "Analyze usage patterns to improve app performance",
+
+  "privacy.section3.title": "Third-Party Services",
+  "privacy.section3.body": "Our app uses the following third-party services that may collect data:",
+  "privacy.section3.admob": "Google AdMob — for displaying advertisements. AdMob may collect and use data as described in Google's Privacy Policy.",
+  "privacy.section3.admob_link": "Google Privacy Policy",
+
+  "privacy.section4.title": "Data Retention",
+  "privacy.section4.body": "Game progress and settings are stored locally on your device and are deleted when you uninstall the app. We do not retain your data on our servers.",
+
+  "privacy.section5.title": "Children's Privacy",
+  "privacy.section5.body": "Our application is not directed to children under the age of 13. We do not knowingly collect personal information from children.",
+
+  "privacy.section6.title": "Your Rights",
+  "privacy.section6.body": "You have the right to opt out of personalized advertising through your device settings. On iOS, go to Settings > Privacy & Security > Tracking. On Android, go to Settings > Google > Ads.",
+
+  "privacy.section7.title": "Contact Us",
+  "privacy.section7.body": "If you have any questions about this privacy policy, please contact us at:",
+
+  "support.title": "Support",
+  "support.subtitle": "How can we help you?",
+  "support.faq.title": "Frequently Asked Questions",
+  "support.faq.q1": "How do I save my progress?",
+  "support.faq.a1": "Your progress is saved automatically as you play. No manual saving is required.",
+  "support.faq.q2": "The game is not loading. What should I do?",
+  "support.faq.a2": "Try closing and reopening the app. If the problem persists, try reinstalling the app. Your progress is saved to your device.",
+  "support.faq.q3": "How do I remove ads?",
+  "support.faq.a3": "Currently the game is free to play and supported by ads. We appreciate your support!",
+  "support.contact.title": "Still need help?",
+  "support.contact.body": "Send us an email and we'll get back to you as soon as possible.",
+  "support.contact.btn": "Send Email",
+
+  "footer.rights": "All rights reserved.",
+  "footer.privacy": "Privacy Policy",
+  "footer.contact": "Contact"
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Support — On The Line: Puzzle Game">
+  <meta name="base-url" content="">
+  <title>Support — On The Line</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <style>
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      max-width: 720px;
+    }
+
+    .faq-item {
+      background: var(--color-bg-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-5) var(--space-6);
+    }
+
+    .faq-q {
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      margin-bottom: var(--space-2);
+    }
+
+    .faq-a {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: var(--leading-relaxed);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">JL</a>
+      <div class="nav-links">
+        <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
+        <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="/life/" data-i18n="nav.life">Games</a>
+        <button class="lang-toggle" aria-label="Switch language">KO</button>
+      </div>
+      <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/career/resume/" data-i18n="nav.resume">Resume</a>
+    <a href="/career/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="/life/" data-i18n="nav.life">Games</a>
+    <button class="lang-toggle" aria-label="Switch language">KO</button>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="/" data-i18n="nav.home">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/life/" data-i18n="nav.life">Games</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>On The Line</span>
+        <span class="breadcrumb-sep">/</span>
+        <span data-i18n="games.support">Support</span>
+      </div>
+
+      <div class="page-hero">
+        <h1 data-i18n="support.title">Support</h1>
+        <p>On The Line: Puzzle Game — <span data-i18n="support.subtitle">How can we help you?</span></p>
+      </div>
+
+      <!-- FAQ -->
+      <section class="section" style="padding-top: 0;">
+        <h2 class="section-title" style="margin-bottom: var(--space-6);" data-i18n="support.faq.title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <div class="faq-q" data-i18n="support.faq.q1">How do I save my progress?</div>
+            <div class="faq-a" data-i18n="support.faq.a1">Your progress is saved automatically as you play. No manual saving is required.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" data-i18n="support.faq.q2">The game is not loading. What should I do?</div>
+            <div class="faq-a" data-i18n="support.faq.a2">Try closing and reopening the app. If the problem persists, try reinstalling the app. Your progress is saved to your device.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" data-i18n="support.faq.q3">How do I remove ads?</div>
+            <div class="faq-a" data-i18n="support.faq.a3">Currently the game is free to play and supported by ads. We appreciate your support!</div>
+          </div>
+
+        </div>
+      </section>
+
+      <hr class="divider" style="max-width: 720px;">
+
+      <!-- Contact -->
+      <section class="section" style="max-width: 720px;">
+        <div class="contact-box">
+          <h3 data-i18n="support.contact.title">Still need help?</h3>
+          <p data-i18n="support.contact.body">Send us an email and we'll get back to you as soon as possible.</p>
+          <!-- Replace with your actual support email -->
+          <a href="mailto:root.jlee@gmail.com?subject=On The Line Support" class="btn btn-primary" data-i18n="support.contact.btn">Send Email</a>
+        </div>
+
+        <p style="margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-muted);">
+          <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="/life/" data-i18n="nav.life">Games</a>
+        <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
