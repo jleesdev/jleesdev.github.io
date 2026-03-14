@@ -2,11 +2,15 @@
   "nav.home": "Home",
   "nav.resume": "Resume",
   "nav.portfolio": "Portfolio",
-  "nav.games": "Games",
+  "nav.life": "Life",
 
   "hero.name": "JONGWON LEE",
   "hero.tagline": "Software Engineer",
   "hero.bio": "I build software — from mobile games to backend systems. Based in Korea.",
+
+  "home.section.career": "Career",
+  "home.section.life": "Life",
+  "life.subtitle": "Games and things I make outside of work",
 
   "home.section.title": "Explore",
   "home.card.resume.title": "Resume",
