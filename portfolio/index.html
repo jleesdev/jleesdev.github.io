@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jongwon Lee — Portfolio">
+  <meta name="base-url" content="">
+  <title>Portfolio — Jongwon Lee</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">JL</a>
+      <div class="nav-links">
+        <a href="/resume/" data-i18n="nav.resume">Resume</a>
+        <a href="/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="/games/" data-i18n="nav.games">Games</a>
+        <button class="lang-toggle" aria-label="Switch language">KO</button>
+      </div>
+      <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/resume/" data-i18n="nav.resume">Resume</a>
+    <a href="/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="/games/" data-i18n="nav.games">Games</a>
+    <button class="lang-toggle" aria-label="Switch language">KO</button>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="page-hero">
+        <h1 data-i18n="portfolio.title">Portfolio</h1>
+        <p data-i18n="portfolio.subtitle">Things I've designed and built</p>
+      </div>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="projects-grid">
+
+          <!--
+            TO ADD a project: copy this block.
+
+            <div class="project-card">
+              <div class="project-card-body">
+                <div class="project-card-title">Project Name</div>
+                <div class="project-card-desc">Short description of what this project does and what technologies were used.</div>
+                <div class="skill-tags" style="margin-bottom: var(--space-4);">
+                  <span class="tag">Swift</span>
+                  <span class="tag">iOS</span>
+                </div>
+                <div class="project-card-links">
+                  <a href="https://github.com/..." target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                  <a href="https://..." target="_blank" rel="noopener noreferrer">Live ↗</a>
+                </div>
+              </div>
+            </div>
+          -->
+
+          <!-- On The Line (cross-listed from Games) -->
+          <div class="project-card">
+            <div class="project-card-body">
+              <div class="project-card-title">On The Line: Puzzle Game</div>
+              <div class="project-card-desc">A mobile puzzle game published on the App Store. Draw lines to solve increasingly challenging levels.</div>
+              <div class="skill-tags" style="margin-bottom: var(--space-4);">
+                <span class="tag">iOS</span>
+                <span class="tag">Mobile Game</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://apps.apple.com/app/id6760333150" target="_blank" rel="noopener noreferrer">App Store ↗</a>
+                <a href="/games/on-the-line/support.html">Support</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/jleesdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

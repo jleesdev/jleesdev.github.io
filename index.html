@@ -1,1 +1,192 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jongwon Lee — Software Engineer. Portfolio, resume, and games.">
+  <meta name="base-url" content="">
+  <title>Jongwon Lee</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <style>
+    .hero {
+      padding: var(--space-24) 0 var(--space-20);
+      text-align: center;
+    }
+
+    .hero-name {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: var(--font-bold);
+      letter-spacing: -0.02em;
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-tagline {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-bio {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      max-width: 480px;
+      margin: 0 auto var(--space-8);
+    }
+
+    .hero-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .nav-cards {
+      padding: var(--space-12) 0 var(--space-24);
+    }
+
+    .nav-cards-title {
+      text-align: center;
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+    }
+
+    .nav-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+
+    @media (max-width: 640px) {
+      .nav-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: var(--space-16) 0 var(--space-12);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">JL</a>
+      <div class="nav-links">
+        <a href="/resume/" data-i18n="nav.resume">Resume</a>
+        <a href="/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="/games/" data-i18n="nav.games">Games</a>
+        <button class="lang-toggle" aria-label="Switch language">KO</button>
+      </div>
+      <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/resume/" data-i18n="nav.resume">Resume</a>
+    <a href="/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="/games/" data-i18n="nav.games">Games</a>
+    <button class="lang-toggle" aria-label="Switch language">KO</button>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-name" data-i18n="hero.name">JONGWON LEE</h1>
+        <p class="hero-tagline" data-i18n="hero.tagline">Software Engineer</p>
+        <p class="hero-bio" data-i18n="hero.bio">I build software — from mobile games to backend systems. Based in Korea.</p>
+        <div class="hero-links">
+          <a href="https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-primary">LinkedIn</a>
+          <a href="/resume/" class="btn btn-secondary" data-i18n="nav.resume">Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="nav-cards">
+      <div class="container">
+        <p class="nav-cards-title" data-i18n="home.section.title">Explore</p>
+        <div class="nav-cards-grid">
+
+          <a href="/resume/" class="nav-card">
+            <div class="nav-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div>
+              <div class="nav-card-title" data-i18n="home.card.resume.title">Resume</div>
+              <div class="nav-card-desc" data-i18n="home.card.resume.desc">Work experience, education, and skills.</div>
+            </div>
+          </a>
+
+          <a href="/portfolio/" class="nav-card">
+            <div class="nav-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div>
+              <div class="nav-card-title" data-i18n="home.card.portfolio.title">Portfolio</div>
+              <div class="nav-card-desc" data-i18n="home.card.portfolio.desc">Projects and things I've built.</div>
+            </div>
+          </a>
+
+          <a href="/games/" class="nav-card">
+            <div class="nav-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="6" y1="12" x2="10" y2="12"/>
+                <line x1="8" y1="10" x2="8" y2="14"/>
+                <circle cx="15" cy="11" r="1" fill="currentColor"/>
+                <circle cx="17.5" cy="13" r="1" fill="currentColor"/>
+                <rect x="2" y="6" width="20" height="12" rx="6" ry="6"/>
+              </svg>
+            </div>
+            <div>
+              <div class="nav-card-title" data-i18n="home.card.games.title">Games</div>
+              <div class="nav-card-desc" data-i18n="home.card.games.desc">Mobile games I've made and published.</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/jleesdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

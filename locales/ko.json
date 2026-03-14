@@ -1,0 +1,84 @@
+{
+  "nav.home": "홈",
+  "nav.resume": "이력서",
+  "nav.portfolio": "포트폴리오",
+  "nav.games": "게임",
+
+  "hero.name": "이종원",
+  "hero.tagline": "소프트웨어 엔지니어",
+  "hero.bio": "모바일 게임부터 백엔드 시스템까지, 다양한 소프트웨어를 만들고 있습니다. 한국 기반.",
+
+  "home.section.title": "둘러보기",
+  "home.card.resume.title": "이력서",
+  "home.card.resume.desc": "경력, 학력, 기술 스택.",
+  "home.card.portfolio.title": "포트폴리오",
+  "home.card.portfolio.desc": "개발한 프로젝트 모음.",
+  "home.card.games.title": "게임",
+  "home.card.games.desc": "출시한 모바일 게임들.",
+
+  "resume.title": "이력서",
+  "resume.subtitle": "경력, 학력, 기술 스택",
+  "resume.section.experience": "경력",
+  "resume.section.education": "학력",
+  "resume.section.skills": "기술",
+  "resume.download": "PDF 다운로드",
+
+  "portfolio.title": "포트폴리오",
+  "portfolio.subtitle": "설계하고 개발한 프로젝트들",
+
+  "games.title": "게임",
+  "games.subtitle": "출시한 모바일 게임들",
+  "games.appstore": "앱 스토어",
+  "games.privacy": "개인정보처리방침",
+  "games.support": "지원",
+
+  "privacy.title": "개인정보처리방침",
+  "privacy.updated": "최종 업데이트",
+  "privacy.intro": "본 개인정보처리방침은 앱 사용 시 수집, 이용, 보호하는 정보에 대해 설명합니다.",
+
+  "privacy.section1.title": "수집하는 정보",
+  "privacy.section1.body": "다음과 같은 정보를 수집할 수 있습니다:",
+  "privacy.section1.item1": "기기 정보 (기기 유형, 운영체제 버전)",
+  "privacy.section1.item2": "이용 데이터 (게임 진행 상황, 세션 시간) — 기기 내 로컬 저장",
+  "privacy.section1.item3": "Google AdMob을 통한 광고 맞춤화를 위한 광고 식별자",
+
+  "privacy.section2.title": "정보 이용 목적",
+  "privacy.section2.body": "수집된 정보는 다음 목적에 사용됩니다:",
+  "privacy.section2.item1": "앱 서비스 제공 및 개선",
+  "privacy.section2.item2": "Google AdMob을 통한 관련 광고 표시",
+  "privacy.section2.item3": "앱 성능 개선을 위한 이용 패턴 분석",
+
+  "privacy.section3.title": "제3자 서비스",
+  "privacy.section3.body": "앱에서 사용하는 제3자 서비스로 데이터가 수집될 수 있습니다:",
+  "privacy.section3.admob": "Google AdMob — 광고 표시 목적. AdMob은 Google 개인정보처리방침에 따라 데이터를 수집 및 이용할 수 있습니다.",
+  "privacy.section3.admob_link": "Google 개인정보처리방침",
+
+  "privacy.section4.title": "데이터 보유",
+  "privacy.section4.body": "게임 진행 상황 및 설정은 기기 내에 로컬로 저장되며, 앱을 삭제하면 함께 삭제됩니다. 당사 서버에 귀하의 데이터를 보관하지 않습니다.",
+
+  "privacy.section5.title": "아동의 개인정보",
+  "privacy.section5.body": "본 앱은 만 13세 미만 아동을 대상으로 하지 않습니다. 아동의 개인정보를 의도적으로 수집하지 않습니다.",
+
+  "privacy.section6.title": "귀하의 권리",
+  "privacy.section6.body": "기기 설정을 통해 맞춤형 광고를 거부할 수 있습니다. iOS의 경우 설정 > 개인정보 보호 및 보안 > 추적, Android의 경우 설정 > Google > 광고에서 변경하실 수 있습니다.",
+
+  "privacy.section7.title": "문의하기",
+  "privacy.section7.body": "개인정보처리방침에 관한 문의사항은 아래 이메일로 연락해 주세요:",
+
+  "support.title": "지원",
+  "support.subtitle": "무엇을 도와드릴까요?",
+  "support.faq.title": "자주 묻는 질문",
+  "support.faq.q1": "게임 진행 상황은 어떻게 저장되나요?",
+  "support.faq.a1": "플레이 중 자동으로 저장됩니다. 별도의 저장 과정이 필요하지 않습니다.",
+  "support.faq.q2": "게임이 로딩되지 않아요. 어떻게 해야 하나요?",
+  "support.faq.a2": "앱을 완전히 종료 후 다시 실행해 보세요. 문제가 지속되면 앱을 재설치해 보세요. 진행 상황은 기기에 저장되어 있습니다.",
+  "support.faq.q3": "광고를 없앨 수 있나요?",
+  "support.faq.a3": "현재 게임은 광고로 지원되는 무료 게임입니다. 이용해 주셔서 감사합니다!",
+  "support.contact.title": "추가 도움이 필요하신가요?",
+  "support.contact.body": "이메일로 문의해 주시면 최대한 빠르게 답변 드리겠습니다.",
+  "support.contact.btn": "이메일 보내기",
+
+  "footer.rights": "All rights reserved.",
+  "footer.privacy": "개인정보처리방침",
+  "footer.contact": "문의"
+}

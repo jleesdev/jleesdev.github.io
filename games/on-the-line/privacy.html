@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy — On The Line: Puzzle Game">
+  <meta name="base-url" content="">
+  <title>Privacy Policy — On The Line</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <style>
+    .legal-wrap {
+      max-width: 720px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">JL</a>
+      <div class="nav-links">
+        <a href="/resume/" data-i18n="nav.resume">Resume</a>
+        <a href="/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="/games/" data-i18n="nav.games">Games</a>
+        <button class="lang-toggle" aria-label="Switch language">KO</button>
+      </div>
+      <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/resume/" data-i18n="nav.resume">Resume</a>
+    <a href="/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="/games/" data-i18n="nav.games">Games</a>
+    <button class="lang-toggle" aria-label="Switch language">KO</button>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="/" data-i18n="nav.home">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/games/" data-i18n="nav.games">Games</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>On The Line</span>
+        <span class="breadcrumb-sep">/</span>
+        <span data-i18n="games.privacy">Privacy Policy</span>
+      </div>
+
+      <div class="legal-wrap">
+        <div class="page-hero">
+          <h1 data-i18n="privacy.title">Privacy Policy</h1>
+          <p><span data-i18n="privacy.updated">Last updated</span>: March 2025</p>
+        </div>
+
+        <div class="legal-content">
+          <p data-i18n="privacy.intro">This privacy policy describes how we collect, use, and protect your information when you use our application.</p>
+
+          <h2 data-i18n="privacy.section1.title">Information We Collect</h2>
+          <p data-i18n="privacy.section1.body">We may collect the following types of information:</p>
+          <ul>
+            <li data-i18n="privacy.section1.item1">Device information (device type, operating system version)</li>
+            <li data-i18n="privacy.section1.item2">Usage data (game progress, session duration) stored locally on your device</li>
+            <li data-i18n="privacy.section1.item3">Advertising identifiers for ad personalization (via Google AdMob)</li>
+          </ul>
+
+          <h2 data-i18n="privacy.section2.title">How We Use Your Information</h2>
+          <p data-i18n="privacy.section2.body">We use the collected information to:</p>
+          <ul>
+            <li data-i18n="privacy.section2.item1">Provide and improve the application experience</li>
+            <li data-i18n="privacy.section2.item2">Display relevant advertisements through Google AdMob</li>
+            <li data-i18n="privacy.section2.item3">Analyze usage patterns to improve app performance</li>
+          </ul>
+
+          <h2 data-i18n="privacy.section3.title">Third-Party Services</h2>
+          <p data-i18n="privacy.section3.body">Our app uses the following third-party services that may collect data:</p>
+          <ul>
+            <li>
+              <span data-i18n="privacy.section3.admob">Google AdMob — for displaying advertisements.</span>
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" data-i18n="privacy.section3.admob_link">Google Privacy Policy</a>
+            </li>
+          </ul>
+
+          <h2 data-i18n="privacy.section4.title">Data Retention</h2>
+          <p data-i18n="privacy.section4.body">Game progress and settings are stored locally on your device and are deleted when you uninstall the app. We do not retain your data on our servers.</p>
+
+          <h2 data-i18n="privacy.section5.title">Children's Privacy</h2>
+          <p data-i18n="privacy.section5.body">Our application is not directed to children under the age of 13. We do not knowingly collect personal information from children.</p>
+
+          <h2 data-i18n="privacy.section6.title">Your Rights</h2>
+          <p data-i18n="privacy.section6.body">You have the right to opt out of personalized advertising through your device settings. On iOS, go to Settings > Privacy & Security > Tracking. On Android, go to Settings > Google > Ads.</p>
+
+          <h2 data-i18n="privacy.section7.title">Contact Us</h2>
+          <p data-i18n="privacy.section7.body">If you have any questions about this privacy policy, please contact us at:</p>
+          <!-- Replace with your actual contact email -->
+          <p><a href="mailto:root.jlee@gmail.com">root.jlee@gmail.com</a></p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="/games/" data-i18n="nav.games">Games</a>
+        <a href="/games/on-the-line/support.html" data-i18n="games.support">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
