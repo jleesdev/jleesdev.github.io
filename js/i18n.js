@@ -58,20 +58,14 @@ function applyTranslations() {
   });
 
   document.documentElement.lang = currentLang;
-  updateLangToggle();
+  updateLangSelector();
 }
 
-function updateLangToggle() {
-  document.querySelectorAll('.lang-toggle').forEach(btn => {
-    const next = getNextLang();
-    btn.textContent = LANG_LABELS[next] || next.toUpperCase();
-    btn.setAttribute('aria-label', `Switch to ${next.toUpperCase()}`);
+function updateLangSelector() {
+  document.querySelectorAll('.lang-option[data-lang]').forEach(btn => {
+    const lang = btn.getAttribute('data-lang');
+    btn.classList.toggle('active', lang === currentLang);
   });
-}
-
-function getNextLang() {
-  const idx = SUPPORTED_LANGS.indexOf(currentLang);
-  return SUPPORTED_LANGS[(idx + 1) % SUPPORTED_LANGS.length];
 }
 
 async function switchLang(lang) {
@@ -107,8 +101,8 @@ async function initI18n() {
   }
   applyTranslations();
 
-  document.querySelectorAll('.lang-toggle').forEach(btn => {
-    btn.addEventListener('click', () => switchLang(getNextLang()));
+  document.querySelectorAll('.lang-option[data-lang]').forEach(btn => {
+    btn.addEventListener('click', () => switchLang(btn.dataset.lang));
   });
 }
 

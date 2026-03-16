@@ -28,116 +28,81 @@
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a href="/" class="nav-logo" aria-label="Home">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-      </a>
-      <div class="nav-links">
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-            <span data-i18n="nav.work">Work</span>
-            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
-            <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-            <span data-i18n="nav.life">Life</span>
-            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="/life/on-the-line/">On The Line</a>
-          </div>
-        </div>
-        <button class="lang-toggle" aria-label="Switch language">KO</button>
-      </div>
-      <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-group-label" data-i18n="nav.work">Work</div>
-      <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
-      <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-    </div>
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-group-label" data-i18n="nav.life">Life</div>
-      <a href="/life/on-the-line/">On The Line</a>
-    </div>
-    <button class="lang-toggle" aria-label="Switch language">KO</button>
-  </div>
-
-  <main>
-    <div class="container">
-
-      <div class="breadcrumb">
-        <a href="/" aria-label="Home">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <div class="nav-breadcrumb">
+        <a href="/" class="nav-logo" aria-label="Home">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
         </a>
-        <span class="breadcrumb-sep">/</span>
-        <a href="/life/on-the-line/">On The Line</a>
-        <span class="breadcrumb-sep">/</span>
-        <span data-i18n="games.privacy">Privacy Policy</span>
+        <span class="nav-breadcrumb-sep">/</span>
+        <a href="/life/on-the-line/" class="nav-breadcrumb-link">On The Line</a>
+        <span class="nav-breadcrumb-sep">/</span>
+        <span class="nav-breadcrumb-link" data-i18n="games.privacy">Privacy Policy</span>
       </div>
+      <div class="lang-selector">
+        <button class="lang-option" data-lang="en">EN</button>
+        <button class="lang-option" data-lang="ko">KO</button>
+      </div>
+    </div>
+  </nav>
 
-      <div class="legal-wrap">
+  <main>
+    <div class="container">
+
+<div class="legal-wrap">
         <div class="page-hero">
           <h1 data-i18n="privacy.title">Privacy Policy</h1>
-          <p><span data-i18n="privacy.updated">Last updated</span>: March 2025</p>
+          <p><span data-i18n="privacy.updated">Last updated</span>: March 2026</p>
         </div>
 
         <div class="legal-content">
-          <p data-i18n="privacy.intro">This privacy policy describes how we collect, use, and protect your information when you use our application.</p>
+          <p data-i18n="privacy.intro">Thank you for using On The Line. This Privacy Policy explains how information may be collected, used, and disclosed when you use the application.</p>
 
-          <h2 data-i18n="privacy.section1.title">Information We Collect</h2>
-          <p data-i18n="privacy.section1.body">We may collect the following types of information:</p>
+          <h2 data-i18n="privacy.collect.title">Information We Collect</h2>
+          <p data-i18n="privacy.collect.body1">We do not collect personal information such as your name, email address, phone number, or address.</p>
+          <p data-i18n="privacy.collect.body2">However, the app may collect certain information automatically through third-party services used within the app.</p>
+
+          <h3 data-i18n="privacy.collect.ads.title">Advertising Data</h3>
+          <p data-i18n="privacy.collect.ads.body">Our app uses Google AdMob to display advertisements. AdMob may collect certain information to provide and improve advertising services, including:</p>
           <ul>
-            <li data-i18n="privacy.section1.item1">Device information (device type, operating system version)</li>
-            <li data-i18n="privacy.section1.item2">Usage data (game progress, session duration) stored locally on your device</li>
-            <li data-i18n="privacy.section1.item3">Advertising identifiers for ad personalization (via Google AdMob)</li>
+            <li data-i18n="privacy.collect.ads.item1">Device identifiers (such as the advertising identifier / IDFA)</li>
+            <li data-i18n="privacy.collect.ads.item2">Information about advertisements shown</li>
+            <li data-i18n="privacy.collect.ads.item3">App interaction related to ads</li>
           </ul>
+          <p data-i18n="privacy.collect.ads.footer">This data may be used to provide personalized or non-personalized ads depending on your device settings and permissions.</p>
 
-          <h2 data-i18n="privacy.section2.title">How We Use Your Information</h2>
-          <p data-i18n="privacy.section2.body">We use the collected information to:</p>
+          <h3 data-i18n="privacy.collect.diag.title">App Diagnostics and Performance Data</h3>
+          <p data-i18n="privacy.collect.diag.body">We may collect anonymous technical information to improve the app's stability and performance, including:</p>
           <ul>
-            <li data-i18n="privacy.section2.item1">Provide and improve the application experience</li>
-            <li data-i18n="privacy.section2.item2">Display relevant advertisements through Google AdMob</li>
-            <li data-i18n="privacy.section2.item3">Analyze usage patterns to improve app performance</li>
+            <li data-i18n="privacy.collect.diag.item1">Crash reports</li>
+            <li data-i18n="privacy.collect.diag.item2">Performance data</li>
+            <li data-i18n="privacy.collect.diag.item3">Device type and operating system version</li>
           </ul>
+          <p data-i18n="privacy.collect.diag.footer">This information is not used to identify individual users.</p>
 
-          <h2 data-i18n="privacy.section3.title">Third-Party Services</h2>
-          <p data-i18n="privacy.section3.body">Our app uses the following third-party services that may collect data:</p>
+          <h2 data-i18n="privacy.tracking.title">App Tracking Transparency (iOS)</h2>
+          <p data-i18n="privacy.tracking.body1">On iOS devices, the app may request permission to track your activity across apps and websites owned by other companies using Apple's App Tracking Transparency framework.</p>
+          <p data-i18n="privacy.tracking.body2">If you choose not to allow tracking, the app will still function normally, but ads may be less relevant.</p>
+
+          <h2 data-i18n="privacy.thirdparty.title">Third-Party Services</h2>
+          <p data-i18n="privacy.thirdparty.body1">The app uses third-party services that may collect information used to identify you.</p>
+          <p data-i18n="privacy.thirdparty.body2">These services include:</p>
           <ul>
-            <li>
-              <span data-i18n="privacy.section3.admob">Google AdMob — for displaying advertisements.</span>
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" data-i18n="privacy.section3.admob_link">Google Privacy Policy</a>
-            </li>
+            <li>Google AdMob</li>
           </ul>
+          <p data-i18n="privacy.thirdparty.body3">For more information, please review Google's privacy policy:</p>
+          <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>
 
-          <h2 data-i18n="privacy.section4.title">Data Retention</h2>
-          <p data-i18n="privacy.section4.body">Game progress and settings are stored locally on your device and are deleted when you uninstall the app. We do not retain your data on our servers.</p>
+          <h2 data-i18n="privacy.children.title">Children's Privacy</h2>
+          <p data-i18n="privacy.children.body">The app does not knowingly collect personally identifiable information from children. If you believe that a child has provided personal information through the app, please contact us and we will promptly remove such information.</p>
 
-          <h2 data-i18n="privacy.section5.title">Children's Privacy</h2>
-          <p data-i18n="privacy.section5.body">Our application is not directed to children under the age of 13. We do not knowingly collect personal information from children.</p>
+          <h2 data-i18n="privacy.changes.title">Changes to This Privacy Policy</h2>
+          <p data-i18n="privacy.changes.body">We may update our Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.</p>
 
-          <h2 data-i18n="privacy.section6.title">Your Rights</h2>
-          <p data-i18n="privacy.section6.body">You have the right to opt out of personalized advertising through your device settings. On iOS, go to Settings > Privacy & Security > Tracking. On Android, go to Settings > Google > Ads.</p>
-
-          <h2 data-i18n="privacy.section7.title">Contact Us</h2>
-          <p data-i18n="privacy.section7.body">If you have any questions about this privacy policy, please contact us at:</p>
-          <!-- Replace with your actual contact email -->
-          <p><a href="mailto:root.jlee@gmail.com">root.jlee@gmail.com</a></p>
+          <h2 data-i18n="privacy.contact.title">Contact Us</h2>
+          <p data-i18n="privacy.contact.body">If you have any questions about this Privacy Policy, you may contact us at:</p>
+          <p><a href="mailto:ontheline.support@gmail.com">ontheline.support@gmail.com</a></p>
         </div>
       </div>
 
@@ -148,8 +113,7 @@
     <div class="container footer-inner">
       <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
       <div class="footer-links">
-        <a href="/life/on-the-line/">On The Line</a>
-        <a href="/life/on-the-line/support.html" data-i18n="games.support">Support</a>
+        <a href="https://apps.apple.com/app/id6760333150" target="_blank" rel="noopener noreferrer" data-i18n="games.appstore">App Store</a>
       </div>
     </div>
   </footer>

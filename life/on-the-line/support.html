@@ -19,30 +19,91 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <style>
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
+    .support-wrap {
       max-width: 720px;
     }
 
-    .faq-item {
+    .formula-box {
+      display: inline-block;
+      background: var(--color-bg-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-6);
+      font-family: monospace;
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      margin: var(--space-3) 0;
+    }
+
+    .score-table {
+      border-collapse: collapse;
+      margin: var(--space-4) 0;
+      font-size: var(--text-sm);
+    }
+
+    .score-table th,
+    .score-table td {
+      border: 1px solid var(--color-border);
+      padding: var(--space-2) var(--space-5);
+      text-align: left;
+    }
+
+    .score-table th {
+      background: var(--color-bg-subtle);
+      font-weight: var(--font-semibold);
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+
+    .example-block {
       background: var(--color-bg-subtle);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
       padding: var(--space-5) var(--space-6);
     }
 
-    .faq-q {
+    .example-block h3 {
       font-size: var(--text-base);
       font-weight: var(--font-semibold);
       margin-bottom: var(--space-2);
     }
 
-    .faq-a {
+    .example-block p {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
-      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-1);
+    }
+
+    .example-calc {
+      font-family: monospace;
+      color: var(--color-text);
+    }
+
+    .example-result {
+      font-weight: var(--font-semibold);
+      color: var(--color-text);
+    }
+
+    .support-wrap .section {
+      padding: var(--space-8) 0;
+    }
+
+    .support-wrap .divider {
+      margin: var(--space-6) 0;
+    }
+
+    .support-wrap ul {
+      list-style: disc;
+      padding-left: var(--space-5);
+    }
+
+    .support-wrap ul li {
+      margin-bottom: var(--space-1);
     }
   </style>
 </head>
@@ -50,113 +111,193 @@
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a href="/" class="nav-logo" aria-label="Home">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-      </a>
-      <div class="nav-links">
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-            <span data-i18n="nav.work">Work</span>
-            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
-            <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-            <span data-i18n="nav.life">Life</span>
-            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="/life/on-the-line/">On The Line</a>
-          </div>
-        </div>
-        <button class="lang-toggle" aria-label="Switch language">KO</button>
-      </div>
-      <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-group-label" data-i18n="nav.work">Work</div>
-      <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
-      <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-    </div>
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-group-label" data-i18n="nav.life">Life</div>
-      <a href="/life/on-the-line/">On The Line</a>
-    </div>
-    <button class="lang-toggle" aria-label="Switch language">KO</button>
-  </div>
-
-  <main>
-    <div class="container">
-
-      <div class="breadcrumb">
-        <a href="/" aria-label="Home">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <div class="nav-breadcrumb">
+        <a href="/" class="nav-logo" aria-label="Home">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
         </a>
-        <span class="breadcrumb-sep">/</span>
-        <a href="/life/on-the-line/">On The Line</a>
-        <span class="breadcrumb-sep">/</span>
-        <span data-i18n="games.support">Support</span>
+        <span class="nav-breadcrumb-sep">/</span>
+        <a href="/life/on-the-line/" class="nav-breadcrumb-link">On The Line</a>
+        <span class="nav-breadcrumb-sep">/</span>
+        <span class="nav-breadcrumb-link" data-i18n="games.support">Support</span>
       </div>
-
-      <div class="page-hero">
-        <h1 data-i18n="support.title">Support</h1>
-        <p>On The Line: Puzzle Game — <span data-i18n="support.subtitle">How can we help you?</span></p>
+      <div class="lang-selector">
+        <button class="lang-option" data-lang="en">EN</button>
+        <button class="lang-option" data-lang="ko">KO</button>
       </div>
+    </div>
+  </nav>
 
-      <!-- FAQ -->
-      <section class="section" style="padding-top: 0;">
-        <h2 class="section-title" style="margin-bottom: var(--space-6);" data-i18n="support.faq.title">Frequently Asked Questions</h2>
-        <div class="faq-list">
+  <main>
+    <div class="container">
+      <div class="support-wrap">
 
-          <div class="faq-item">
-            <div class="faq-q" data-i18n="support.faq.q1">How do I save my progress?</div>
-            <div class="faq-a" data-i18n="support.faq.a1">Your progress is saved automatically as you play. No manual saving is required.</div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-q" data-i18n="support.faq.q2">The game is not loading. What should I do?</div>
-            <div class="faq-a" data-i18n="support.faq.a2">Try closing and reopening the app. If the problem persists, try reinstalling the app. Your progress is saved to your device.</div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-q" data-i18n="support.faq.q3">How do I remove ads?</div>
-            <div class="faq-a" data-i18n="support.faq.a3">Currently the game is free to play and supported by ads. We appreciate your support!</div>
-          </div>
-
-        </div>
-      </section>
-
-      <hr class="divider" style="max-width: 720px;">
-
-      <!-- Contact -->
-      <section class="section" style="max-width: 720px;">
-        <div class="contact-box">
-          <h3 data-i18n="support.contact.title">Still need help?</h3>
-          <p data-i18n="support.contact.body">Send us an email and we'll get back to you as soon as possible.</p>
-          <!-- Replace with your actual support email -->
-          <a href="mailto:root.jlee@gmail.com?subject=On The Line Support" class="btn btn-primary" data-i18n="support.contact.btn">Send Email</a>
+        <div class="page-hero">
+          <h1 data-i18n="support.title">Support</h1>
+          <p>On The Line: Puzzle Game — <span data-i18n="support.subtitle">How can we help you?</span></p>
         </div>
 
-        <p style="margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-muted);">
-          <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
-        </p>
-      </section>
+        <!-- How to Play -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="support.howto.title">How to Play</h2>
+          <p data-i18n="support.howto.goal">The goal of the game is simple: connect objects and clear them to score points.</p>
 
+          <h3 style="margin-top: var(--space-6); margin-bottom: var(--space-3);" data-i18n="support.howto.rules.title">Basic Rules</h3>
+          <ul>
+            <li data-i18n="support.howto.rule1">Connect 5 or more identical objects in a horizontal, vertical, or diagonal line to clear them.</li>
+            <li data-i18n="support.howto.rule2">Each time you move an object, 3 new random objects appear on the board.</li>
+            <li data-i18n="support.howto.rule3">If objects are cleared during a move, no new objects will appear for that move.</li>
+            <li data-i18n="support.howto.rule4">Objects cannot move through paths blocked by other objects.</li>
+            <li data-i18n="support.howto.rule5">If there is no space left to place new random objects, the game ends.</li>
+          </ul>
+
+          <h3 style="margin-top: var(--space-6); margin-bottom: var(--space-3);" data-i18n="support.howto.undo.title">Undo Move</h3>
+          <p data-i18n="support.howto.undo.body">If you make a mistake, you can undo your last move.</p>
+          <p style="margin-top: var(--space-2);" data-i18n="support.howto.undo.how">Tap the back arrow at the top-left corner and watch a rewarded ad to undo your previous action.</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Scoring System -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="support.scoring.title">Scoring System</h2>
+          <p data-i18n="support.scoring.intro">When objects are cleared, the score depends on how many objects are connected.</p>
+          <p style="margin-top: var(--space-3);" data-i18n="support.scoring.formula.label">If n objects are cleared:</p>
+          <div class="formula-box">Score = n(n − 4)</div>
+          <table class="score-table">
+            <thead>
+              <tr>
+                <th data-i18n="support.scoring.table.cleared">Objects Cleared</th>
+                <th data-i18n="support.scoring.table.score">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>5</td><td>5</td></tr>
+              <tr><td>6</td><td>12</td></tr>
+              <tr><td>7</td><td>21</td></tr>
+              <tr><td>8</td><td>32</td></tr>
+              <tr><td>9</td><td>45</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Combo System -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="support.combo.title">Combo System</h2>
+          <p data-i18n="support.combo.intro">When objects are cleared in consecutive moves, a combo multiplier is applied.</p>
+          <p style="margin-top: var(--space-3);" data-i18n="support.combo.formula.label">Combo multiplier formula:</p>
+          <div class="formula-box">2ⁿ</div>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted);" data-i18n="support.combo.formula.where">where n = combo count</p>
+          <table class="score-table" style="margin-top: var(--space-4);">
+            <thead>
+              <tr>
+                <th data-i18n="support.combo.table.combo">Combo</th>
+                <th data-i18n="support.combo.table.multiplier">Multiplier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="support.combo.row1">1 combo</td><td>2x</td></tr>
+              <tr><td data-i18n="support.combo.row2">2 combo</td><td>4x</td></tr>
+              <tr><td data-i18n="support.combo.row3">3 combo</td><td>8x</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Lucky Clear -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="support.lucky.title">Lucky Clear 🍀</h2>
+          <p data-i18n="support.lucky.intro">Sometimes the 3 randomly spawned objects may accidentally form a line and clear automatically.</p>
+          <p style="margin-top: var(--space-3);" data-i18n="support.lucky.when">When this happens:</p>
+          <ul style="margin-top: var(--space-2);">
+            <li data-i18n="support.lucky.item1">The same scoring rules apply</li>
+            <li data-i18n="support.lucky.item2">The combo multiplier also applies</li>
+          </ul>
+          <p style="margin-top: var(--space-4); font-weight: var(--font-semibold);" data-i18n="support.lucky.end">Lucky!</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Score Examples -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="support.examples.title">Score Examples</h2>
+          <div class="example-grid">
+            <div class="example-block">
+              <h3 data-i18n="support.examples.ex1.title">Basic Clear</h3>
+              <p data-i18n="support.examples.ex1.desc">Clear 5 objects</p>
+              <p class="example-calc">5 × (5−4) = <strong class="example-result" data-i18n="support.examples.ex1.result">5 points</strong></p>
+            </div>
+            <div class="example-block">
+              <h3 data-i18n="support.examples.ex2.title">Bigger Line</h3>
+              <p data-i18n="support.examples.ex2.desc">Clear 7 objects</p>
+              <p class="example-calc">7 × (7−4) = <strong class="example-result" data-i18n="support.examples.ex2.result">21 points</strong></p>
+            </div>
+            <div class="example-block">
+              <h3 data-i18n="support.examples.ex3.title">Combo Clear</h3>
+              <p data-i18n="support.examples.ex3.desc">Clear 6 objects, then clear 7 objects</p>
+              <p class="example-calc">6 × (6−4) = 12</p>
+              <p class="example-calc">7 × (7−4) × 2 = <strong class="example-result">42</strong></p>
+              <p class="example-calc"><strong class="example-result" data-i18n="support.examples.ex3.total">Total: 54 points</strong></p>
+            </div>
+            <div class="example-block">
+              <h3 data-i18n="support.examples.ex4.title">Big Combo</h3>
+              <p data-i18n="support.examples.ex4.desc">Clear 9 objects with a 3 combo</p>
+              <p class="example-calc">9 × (9−4) × 8 = <strong class="example-result" data-i18n="support.examples.ex4.result">360 points</strong></p>
+            </div>
+          </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Game Over -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="support.gameover.title">Game Over</h2>
+          <p data-i18n="support.gameover.intro">The game ends when:</p>
+          <ul style="margin-top: var(--space-2);">
+            <li data-i18n="support.gameover.item1">You move an object</li>
+            <li data-i18n="support.gameover.item2">New random objects must appear</li>
+            <li data-i18n="support.gameover.item3">But there is no empty space left on the board</li>
+          </ul>
+          <p style="margin-top: var(--space-4);" data-i18n="support.gameover.end">When that happens, the game is over.</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Pro Tip -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="support.protip.title">Pro Tip</h2>
+          <p data-i18n="support.protip.body">Clearing larger lines and chaining combos is the fastest way to achieve high scores.</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Outro -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="support.outro.title">Now it's your turn</h2>
+          <p data-i18n="support.outro.line1">Plan your moves.</p>
+          <p data-i18n="support.outro.line2">Create combos.</p>
+          <p data-i18n="support.outro.line3">Beat your previous high score.</p>
+          <p style="margin-top: var(--space-4); font-weight: var(--font-semibold);" data-i18n="support.outro.cta">Now go break your record. 🚀</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Contact -->
+        <section class="section">
+          <div class="contact-box">
+            <h3 data-i18n="support.contact.title">Contact Us</h3>
+            <p data-i18n="support.contact.body">Having trouble? Send us an email with your name, email address, a description of the issue, and optionally your app version and device info.</p>
+            <a href="mailto:ontheline.support@gmail.com?subject=On The Line Support"
+               class="btn btn-primary" data-i18n="support.contact.btn">Send Email</a>
+          </div>
+        </section>
+
+      </div>
     </div>
   </main>
 
@@ -164,8 +305,7 @@
     <div class="container footer-inner">
       <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
       <div class="footer-links">
-        <a href="/life/on-the-line/">On The Line</a>
-        <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
+        <a href="https://apps.apple.com/app/id6760333150" target="_blank" rel="noopener noreferrer" data-i18n="games.appstore">App Store</a>
       </div>
     </div>
   </footer>

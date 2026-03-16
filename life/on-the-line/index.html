@@ -43,36 +43,51 @@
       align-items: center;
     }
 
-    .game-meta-links {
-      display: flex;
-      gap: var(--space-5);
-      margin-top: var(--space-10);
-    }
-
-    .game-meta-links a {
+    .game-link {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
       text-decoration: underline;
       transition: color var(--transition-fast);
     }
 
-    .game-meta-links a:hover {
+    .game-link:hover {
       color: var(--color-accent);
     }
 
-    .game-screenshot {
-      width: 100%;
-      max-width: 400px;
-      aspect-ratio: 9/16;
-      background: var(--color-bg-subtle);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
+    .game-hero-inner {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
+      gap: var(--space-6);
+      align-items: flex-start;
+    }
+
+    .game-logo {
+      width: 88px;
+      height: 88px;
+      border-radius: var(--radius-lg);
+      flex-shrink: 0;
+    }
+
+    .screenshots-grid {
+      display: flex;
+      gap: var(--space-4);
       margin-bottom: var(--space-12);
+    }
+
+    .screenshots-grid img {
+      flex: 1;
+      max-width: 320px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+
+    @media (max-width: 640px) {
+      .game-hero-inner {
+        flex-direction: column;
+      }
+
+      .screenshots-grid {
+        gap: var(--space-2);
+      }
     }
   </style>
 </head>
@@ -80,83 +95,46 @@
 
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a href="/" class="nav-logo" aria-label="Home">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-      </a>
-      <div class="nav-links">
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-            <span data-i18n="nav.work">Work</span>
-            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
-            <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-            <span data-i18n="nav.life">Life</span>
-            <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="/life/on-the-line/">On The Line</a>
-          </div>
-        </div>
-        <button class="lang-toggle" aria-label="Switch language">KO</button>
-      </div>
-      <button class="nav-mobile-btn" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-group-label" data-i18n="nav.work">Work</div>
-      <a href="/work/resume/" data-i18n="nav.resume">Resume</a>
-      <a href="/work/portfolio/" data-i18n="nav.portfolio">Portfolio</a>
-    </div>
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-group-label" data-i18n="nav.life">Life</div>
-      <a href="/life/on-the-line/">On The Line</a>
-    </div>
-    <button class="lang-toggle" aria-label="Switch language">KO</button>
-  </div>
-
-  <main>
-    <div class="container">
-
-      <div class="breadcrumb">
-        <a href="/" aria-label="Home">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <div class="nav-breadcrumb">
+        <a href="/" class="nav-logo" aria-label="Home">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
         </a>
-        <span class="breadcrumb-sep">/</span>
-        <span>On The Line</span>
+        <span class="nav-breadcrumb-sep">/</span>
+        <span class="nav-breadcrumb-link">On The Line</span>
       </div>
+      <div class="lang-selector">
+        <button class="lang-option" data-lang="en">EN</button>
+        <button class="lang-option" data-lang="ko">KO</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
 
       <div class="game-hero">
-        <h1>On The Line: Puzzle Game</h1>
-        <p>A minimalist puzzle game. Draw lines to solve increasingly challenging levels.</p>
-        <div class="game-hero-links">
-          <a href="https://apps.apple.com/app/id6760333150" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="games.appstore">App Store</a>
+        <div class="game-hero-inner">
+          <img src="/life/on-the-line/ontheline_logo_strawberry.png" alt="On The Line logo" class="game-logo">
+          <div>
+            <h1>On The Line: Puzzle Game</h1>
+            <p style="margin-bottom: 0;" data-i18n="otl.tagline.line1">Move, Line Up, And Clear!</p>
+            <p data-i18n="otl.tagline.line2">Simple yet addictive line puzzle game!</p>
+            <div class="game-hero-links">
+              <a href="https://apps.apple.com/app/id6760333150" target="_blank" rel="noopener noreferrer" class="game-link" data-i18n="games.appstore">App Store</a>
+              <a href="/life/on-the-line/privacy.html" class="game-link" data-i18n="games.privacy">Privacy Policy</a>
+              <a href="/life/on-the-line/support.html" class="game-link" data-i18n="games.support">Support</a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="game-screenshot">
-        <!-- Screenshot placeholder — replace with: <img src="/assets/images/on-the-line.png" alt="On The Line gameplay"> -->
-        Screenshot
-      </div>
-
-      <div class="game-meta-links">
-        <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
-        <a href="/life/on-the-line/support.html" data-i18n="games.support">Support</a>
+      <div class="screenshots-grid">
+        <img src="/life/on-the-line/IMG_5281.PNG" alt="On The Line gameplay">
+        <img src="/life/on-the-line/IMG_5283.PNG" alt="On The Line combo">
+        <img src="/life/on-the-line/IMG_5284.PNG" alt="On The Line game over">
       </div>
 
     </div>
@@ -166,8 +144,6 @@
     <div class="container footer-inner">
       <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
       <div class="footer-links">
-        <a href="/life/on-the-line/privacy.html" data-i18n="games.privacy">Privacy Policy</a>
-        <a href="/life/on-the-line/support.html" data-i18n="games.support">Support</a>
       </div>
     </div>
   </footer>
