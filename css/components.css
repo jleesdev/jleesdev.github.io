@@ -381,7 +381,9 @@ a.nav-breadcrumb-link:hover {
 
 .project-card-links {
   display: flex;
-  gap: var(--space-3);
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: auto;
 }
 
 .project-card-links a {
@@ -547,4 +549,221 @@ a.nav-breadcrumb-link:hover {
 
 .breadcrumb-sep {
   color: var(--color-border);
+}
+
+/* ========== Filter chips ========== */
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+}
+
+.chip {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-muted);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.chip:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-muted);
+}
+
+.chip.active {
+  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.chip-count {
+  opacity: 0.6;
+  margin-left: var(--space-1);
+}
+
+/* ========== Badges ========== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-3);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  background: var(--color-bg-subtle);
+}
+
+.badge-accent {
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  border-color: transparent;
+}
+
+.badge-private {
+  color: #92400e;
+  background: #fef3c7;
+  border-color: transparent;
+}
+
+/* ========== Journal ========== */
+
+.journal-month {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  margin: var(--space-12) 0 var(--space-8);
+}
+
+.journal-month:first-child {
+  margin-top: 0;
+}
+
+.journal-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.journal-project {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.journal-project:hover {
+  color: var(--color-accent);
+}
+
+.journal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.journal-links a {
+  color: var(--color-accent);
+  font-weight: var(--font-medium);
+}
+
+.empty-state {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  padding: var(--space-12) 0;
+  text-align: center;
+}
+
+/* ========== Rendered markdown ========== */
+
+.md-body {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+
+.md-body > *:first-child { margin-top: 0; }
+.md-body > *:last-child { margin-bottom: 0; }
+
+.md-body p {
+  margin-bottom: var(--space-4);
+}
+
+.md-body h2,
+.md-body h3,
+.md-body h4,
+.md-body h5 {
+  color: var(--color-text);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+.md-body h2 { font-size: var(--text-lg); }
+.md-body h3 { font-size: var(--text-base); }
+.md-body h4,
+.md-body h5 { font-size: var(--text-sm); }
+
+.md-body ul,
+.md-body ol {
+  margin: 0 0 var(--space-4) var(--space-5);
+  padding-left: var(--space-2);
+}
+
+.md-body ul { list-style: disc; }
+.md-body ol { list-style: decimal; }
+
+.md-body li::marker {
+  color: var(--color-border);
+}
+
+.md-body li {
+  margin-bottom: var(--space-2);
+}
+
+.md-body a {
+  color: var(--color-accent);
+}
+
+.md-body a:hover {
+  text-decoration: underline;
+}
+
+.md-body strong {
+  color: var(--color-text);
+  font-weight: var(--font-semibold);
+}
+
+.md-body code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1px 5px;
+}
+
+.md-body pre {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+}
+
+.md-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.md-body blockquote {
+  border-left: 3px solid var(--color-border);
+  padding-left: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.md-body img {
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
 }

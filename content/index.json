@@ -1,0 +1,185 @@
+{
+  "generated": "2026-08-16",
+  "includesPrivate": false,
+  "projects": [
+    {
+      "id": "on-the-line",
+      "path": "content/projects/on-the-line.md",
+      "title": {
+        "en": "On The Line: Puzzle Game",
+        "ko": "On The Line: 퍼즐 게임"
+      },
+      "summary": {
+        "en": "A mobile puzzle game published on the App Store. Draw lines to solve increasingly challenging levels.",
+        "ko": "App Store에 출시한 모바일 퍼즐 게임. 같은 오브젝트를 한 줄로 모아 없애는 규칙의 캐주얼 퍼즐."
+      },
+      "period": {
+        "en": "2025 – Present",
+        "ko": "2025 – 현재"
+      },
+      "status": "active",
+      "tags": [
+        "iOS",
+        "Unity",
+        "Mobile Game"
+      ],
+      "links": [
+        {
+          "label": "App Store",
+          "url": "https://apps.apple.com/app/id6760333150"
+        },
+        {
+          "label": "Support",
+          "url": "/life/on-the-line/support.html"
+        },
+        {
+          "label": "Landing",
+          "url": "/life/on-the-line/"
+        }
+      ],
+      "showcase": true,
+      "order": 1,
+      "body": {
+        "ko": "가로·세로·대각선으로 같은 오브젝트 5개 이상을 이으면 사라지는 캐주얼 퍼즐 게임입니다.\n한 번 움직일 때마다 새 오브젝트 3개가 생성되고, 보드가 가득 차면 게임이 끝납니다.\n\n- 콤보 배수와 럭키 클리어 등 점수 규칙 설계\n- AdMob 리워드 광고 기반 되돌리기 기능\n- iOS 출시 및 운영",
+        "en": "A casual line puzzle: connect five or more identical objects horizontally, vertically, or\ndiagonally to clear them. Every move spawns three new objects, and the game ends when the\nboard fills up.\n\n- Scoring design including combo multipliers and lucky clears\n- Undo backed by AdMob rewarded ads\n- Shipped and maintained on iOS"
+      }
+    },
+    {
+      "id": "personal-site",
+      "path": "content/projects/personal-site.md",
+      "title": {
+        "en": "Personal Site",
+        "ko": "개인 사이트"
+      },
+      "summary": {
+        "en": "This site. A static portfolio and work history on GitHub Pages — no framework, no build step.",
+        "ko": "이 사이트. GitHub Pages 위에 올린 정적 포트폴리오 겸 작업 히스토리. 프레임워크도 빌드 스텝도 없음."
+      },
+      "period": {
+        "en": "2026 – Present",
+        "ko": "2026 – 현재"
+      },
+      "status": "active",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "GitHub Pages"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/jleesdev/jleesdev.github.io"
+        },
+        {
+          "label": "History",
+          "url": "/work/journal/"
+        }
+      ],
+      "showcase": true,
+      "order": 2,
+      "body": {
+        "ko": "순수 HTML/CSS/바닐라 JS로 만든 정적 사이트입니다.\n\n- 콘텐츠는 `content/**/*.md` (frontmatter + 본문)에 두고, 페이지는 이를 렌더링만 합니다\n- EN/KO 전환은 한 파일 안에서 `<!-- lang:xx -->` 마커로 본문을 나눠 처리합니다\n- 작업 히스토리는 프로젝트 단위로 묶이고, 비공개 항목은 로컬에서만 보입니다",
+        "en": "A static site built with plain HTML, CSS, and vanilla JavaScript.\n\n- Content lives in `content/**/*.md` (frontmatter + body); pages only render it\n- EN/KO switching splits one file by `<!-- lang:xx -->` markers\n- History entries are grouped by project; private entries render only on localhost"
+      }
+    }
+  ],
+  "journal": [
+    {
+      "id": "2026-08-16-worklog-system",
+      "path": "content/journal/2026-08-16-worklog-system.md",
+      "date": "2026-08-16",
+      "project": "personal-site",
+      "title": {
+        "en": "Markdown-backed content and work history",
+        "ko": "마크다운 기반 콘텐츠·작업 히스토리 구조 도입"
+      },
+      "tags": [
+        "tooling",
+        "content"
+      ],
+      "links": [],
+      "visibility": "public",
+      "body": {
+        "ko": "포트폴리오/이력서가 HTML 하드코딩이라 항목을 추가할 때마다 HTML·EN·KO 세 곳을 손봐야 했다.\n작업 히스토리처럼 매일 쌓이는 콘텐츠에는 못 버티는 구조라 데이터 레이어를 분리했다.\n\n- `content/**/*.md` 를 원본으로 하고 frontmatter + 본문 형식으로 통일\n- 한 파일 안에서 `<!-- lang:ko -->` / `<!-- lang:en -->` 마커로 두 언어를 같이 관리 — 한쪽만 갱신되는 desync 방지\n- 브라우저가 디렉터리를 못 읽는 문제는 `tools/build_index.py` 가 만든 `content/index.json` 번들로 해결\n- 비공개 일지는 `content-private/` 에 두고 gitignore, 공개 번들에서 제외",
+        "en": "The portfolio and resume were hardcoded HTML, so adding one entry meant editing three places:\nthe markup plus both locale files. That does not survive a journal that grows daily, so the\ncontent moved into its own layer.\n\n- `content/**/*.md` is now the source of truth: frontmatter plus body\n- Both languages live in one file, split by `<!-- lang:ko -->` / `<!-- lang:en -->` markers, so they cannot drift apart\n- Browsers cannot list directories, so `tools/build_index.py` emits a `content/index.json` bundle\n- Private entries sit in `content-private/`, gitignored and excluded from the public bundle"
+      }
+    }
+  ],
+  "resume": {
+    "experience": [
+      {
+        "id": "2021-software-engineer",
+        "path": "content/resume/experience/2021-software-engineer.md",
+        "period": {
+          "en": "2021 – Present",
+          "ko": "2021 – 현재"
+        },
+        "title": {
+          "en": "Software Engineer",
+          "ko": "소프트웨어 엔지니어"
+        },
+        "org": {
+          "en": "—",
+          "ko": "—"
+        },
+        "order": 1,
+        "body": {
+          "ko": "여기에 담당 업무와 성과를 적습니다.",
+          "en": "Describe responsibilities and achievements here."
+        }
+      }
+    ],
+    "education": [
+      {
+        "id": "placeholder",
+        "path": "content/resume/education/placeholder.md",
+        "period": {
+          "en": "—",
+          "ko": "—"
+        },
+        "title": {
+          "en": "—",
+          "ko": "—"
+        },
+        "org": {
+          "en": "—",
+          "ko": "—"
+        },
+        "order": 1,
+        "body": {}
+      }
+    ],
+    "skills": [
+      {
+        "label": "Languages",
+        "items": [
+          "—"
+        ]
+      },
+      {
+        "label": "Frameworks & Tools",
+        "items": [
+          "Unity"
+        ]
+      },
+      {
+        "label": "Platforms",
+        "items": [
+          "iOS",
+          "Android"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/jleesdev"
+      }
+    ]
+  }
+}

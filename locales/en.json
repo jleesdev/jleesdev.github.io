@@ -3,6 +3,7 @@
   "nav.work": "Work",
   "nav.resume": "Resume",
   "nav.portfolio": "Portfolio",
+  "nav.journal": "History",
   "nav.life": "Life",
 
   "hero.name": "Jongwon Lee",
@@ -28,8 +29,26 @@
   "resume.section.skills": "Skills",
   "resume.download": "Download PDF",
 
+  "resume.section.links": "Links",
+  "resume.empty": "Nothing here yet.",
+
   "portfolio.title": "Portfolio",
   "portfolio.subtitle": "Things I've designed and built",
+  "portfolio.details": "Details",
+  "portfolio.empty": "No projects yet.",
+
+  "journal.title": "Work History",
+  "journal.subtitle": "What I worked on, by project",
+  "journal.filter.all": "All",
+  "journal.empty": "No entries yet.",
+  "journal.private": "Private",
+
+  "project.journal": "Work History",
+  "project.notfound": "Project not found.",
+  "project.status.active": "Active",
+  "project.status.completed": "Completed",
+  "project.status.paused": "Paused",
+  "project.status.archived": "Archived",
 
   "otl.tagline.line1": "Move, Line Up, And Clear!",
   "otl.tagline.line2": "Simple yet addictive line puzzle game!",

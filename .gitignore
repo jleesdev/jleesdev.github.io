@@ -1,0 +1,4 @@
+# 비공개 작업일지 — 로컬에서만 렌더되며 절대 커밋하지 않는다
+content-private/
+
+.DS_Store

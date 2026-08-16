@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jongwon Lee — Work History">
+  <meta name="base-url" content="">
+  <title>Work History — jlee</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <div class="nav-breadcrumb">
+        <a href="/" class="nav-logo" aria-label="Home">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </a>
+        <span class="nav-breadcrumb-sep">/</span>
+        <a href="/work/journal/" class="nav-breadcrumb-link" data-i18n="nav.journal">History</a>
+      </div>
+      <div class="lang-selector">
+        <button class="lang-option" data-lang="en">EN</button>
+        <button class="lang-option" data-lang="ko">KO</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="page-hero">
+        <h1 data-i18n="journal.title">Work History</h1>
+        <p data-i18n="journal.subtitle">What I worked on, by project</p>
+      </div>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="filter-chips" id="filters"></div>
+        <div id="entries"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/jleesdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/content.js"></script>
+  <script>
+    const filtersEl = document.getElementById('filters');
+    const entriesEl = document.getElementById('entries');
+
+    let activeProject = new URLSearchParams(location.search).get('project') || '';
+
+    function renderFilters(idx, projects) {
+      const counts = {};
+      idx.journal.forEach(e => { counts[e.project] = (counts[e.project] || 0) + 1; });
+
+      const chips = [{ id: '', label: t('journal.filter.all'), count: idx.journal.length }];
+      idx.projects
+        .filter(p => counts[p.id])
+        .forEach(p => chips.push({ id: p.id, label: Content.pick(p.title), count: counts[p.id] }));
+
+      filtersEl.innerHTML = chips.map(c => `
+        <button class="chip${c.id === activeProject ? ' active' : ''}" data-project="${Content.escapeHtml(c.id)}">
+          ${Content.escapeHtml(c.label)}<span class="chip-count">${c.count}</span>
+        </button>`).join('');
+    }
+
+    function renderEntry(entry, projects) {
+      const project = projects[entry.project];
+      const projectLink = project
+        ? `<a class="journal-project" href="/work/project/?id=${encodeURIComponent(project.id)}">${Content.escapeHtml(Content.pick(project.title))}</a>`
+        : '';
+      const privateBadge = entry.visibility === 'private'
+        ? `<span class="badge badge-private">${Content.escapeHtml(t('journal.private'))}</span>`
+        : '';
+
+      return `
+        <div class="timeline-item">
+          <div class="journal-head">
+            <span class="timeline-date" style="margin-bottom:0;">${Content.formatDate(entry.date)}</span>
+            ${projectLink}
+            ${privateBadge}
+          </div>
+          <div class="timeline-title">${Content.escapeHtml(Content.pick(entry.title))}</div>
+          ${Content.renderTags(entry.tags)}
+          <div class="md-body" style="margin-top: var(--space-3);">${Content.markdown(Content.pick(entry.body))}</div>
+          ${entry.links.length ? `<div class="journal-links">${Content.renderLinks(entry.links)}</div>` : ''}
+        </div>`;
+    }
+
+    function renderEntries(idx, projects) {
+      const list = activeProject
+        ? idx.journal.filter(e => e.project === activeProject)
+        : idx.journal;
+
+      if (!list.length) {
+        entriesEl.innerHTML = `<p class="empty-state">${Content.escapeHtml(t('journal.empty'))}</p>`;
+        return;
+      }
+
+      // 이미 최신순으로 정렬되어 있으므로 월이 바뀔 때마다 새 타임라인을 연다.
+      const html = [];
+      let month = null;
+      list.forEach(entry => {
+        const m = Content.monthOf(entry.date);
+        if (m !== month) {
+          if (month !== null) html.push('</div>');
+          html.push(`<div class="journal-month">${m.replace('-', '.')}</div><div class="timeline">`);
+          month = m;
+        }
+        html.push(renderEntry(entry, projects));
+      });
+      html.push('</div>');
+
+      entriesEl.innerHTML = html.join('');
+    }
+
+    async function render() {
+      const idx = await Content.index();
+      const projects = Content.projectMap(idx);
+      renderFilters(idx, projects);
+      renderEntries(idx, projects);
+    }
+
+    filtersEl.addEventListener('click', e => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      activeProject = chip.dataset.project;
+
+      const url = new URL(location.href);
+      if (activeProject) url.searchParams.set('project', activeProject);
+      else url.searchParams.delete('project');
+      history.replaceState({}, '', url);
+
+      render();
+    });
+
+    document.addEventListener('i18n:applied', render);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

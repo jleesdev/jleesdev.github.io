@@ -46,45 +46,13 @@
         <p data-i18n="portfolio.subtitle">Things I've designed and built</p>
       </div>
 
+      <!--
+        프로젝트는 content/projects/*.md 에서 읽어온다.
+        추가/수정은 그 md 파일을 고친 뒤 `python3 tools/build_index.py` 실행.
+        showcase: true 인 프로젝트만 이 페이지에 나온다.
+      -->
       <section class="section" style="padding-top: 0;">
-        <div class="projects-grid">
-
-          <!--
-            TO ADD a project: copy this block.
-
-            <div class="project-card">
-              <div class="project-card-body">
-                <div class="project-card-title">Project Name</div>
-                <div class="project-card-desc">Short description of what this project does and what technologies were used.</div>
-                <div class="skill-tags" style="margin-bottom: var(--space-4);">
-                  <span class="tag">Swift</span>
-                  <span class="tag">iOS</span>
-                </div>
-                <div class="project-card-links">
-                  <a href="https://github.com/..." target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                  <a href="https://..." target="_blank" rel="noopener noreferrer">Live ↗</a>
-                </div>
-              </div>
-            </div>
-          -->
-
-          <!-- On The Line (cross-listed from Games) -->
-          <div class="project-card">
-            <div class="project-card-body">
-              <div class="project-card-title">On The Line: Puzzle Game</div>
-              <div class="project-card-desc">A mobile puzzle game published on the App Store. Draw lines to solve increasingly challenging levels.</div>
-              <div class="skill-tags" style="margin-bottom: var(--space-4);">
-                <span class="tag">iOS</span>
-                <span class="tag">Mobile Game</span>
-              </div>
-              <div class="project-card-links">
-                <a href="https://apps.apple.com/app/id6760333150" target="_blank" rel="noopener noreferrer">App Store ↗</a>
-                <a href="/life/on-the-line/support.html">Support</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        <div class="projects-grid" id="projects"></div>
       </section>
     </div>
   </main>
@@ -101,6 +69,51 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/i18n.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="/js/content.js"></script>
+  <script>
+    const projectsEl = document.getElementById('projects');
+
+    function card(project, journalCount) {
+      const href = `/work/project/?id=${encodeURIComponent(project.id)}`;
+      const title = Content.escapeHtml(Content.pick(project.title));
+      const summary = Content.escapeHtml(Content.pick(project.summary));
+      const journalLabel = Content.escapeHtml(t('project.journal'));
+
+      return `
+        <div class="project-card">
+          <div class="project-card-body">
+            <div class="project-card-title"><a href="${href}">${title}</a></div>
+            <div class="project-card-desc">${summary}</div>
+            <div class="skill-tags" style="margin-bottom: var(--space-4);">
+              ${project.tags.map(tag => `<span class="tag">${Content.escapeHtml(tag)}</span>`).join('')}
+            </div>
+            <div class="project-card-links">
+              <a href="${href}">${Content.escapeHtml(t('portfolio.details'))}</a>
+              ${journalCount ? `<a href="/work/journal/?project=${encodeURIComponent(project.id)}">${journalLabel} ${journalCount}</a>` : ''}
+              ${/* 카드에는 외부 링크만. 사이트 내부 링크는 상세 페이지에서 전부 보여준다. */ ''}
+              ${Content.renderLinks(project.links.filter(l => /^https?:/i.test(l.url)))}
+            </div>
+          </div>
+        </div>`;
+    }
+
+    async function render() {
+      const idx = await Content.index();
+      const showcased = (idx.projects || []).filter(p => p.showcase);
+
+      if (!showcased.length) {
+        projectsEl.innerHTML = `<p class="empty-state">${Content.escapeHtml(t('portfolio.empty'))}</p>`;
+        return;
+      }
+
+      const counts = {};
+      (idx.journal || []).forEach(e => { counts[e.project] = (counts[e.project] || 0) + 1; });
+
+      projectsEl.innerHTML = showcased.map(p => card(p, counts[p.id] || 0)).join('');
+    }
+
+    document.addEventListener('i18n:applied', render);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

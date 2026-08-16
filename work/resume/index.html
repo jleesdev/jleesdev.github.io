@@ -87,110 +87,45 @@
         <p data-i18n="resume.subtitle">Experience, education, and skills</p>
       </div>
 
+      <!--
+        경력·학력·스킬은 content/resume/ 아래 md 파일에서 읽어온다.
+        수정 후 `python3 tools/build_index.py` 실행.
+      -->
       <div class="resume-layout">
-        <!-- Main content -->
         <div>
-
-          <!-- Experience -->
           <section class="section" style="padding-top: 0;">
             <div class="section-header">
               <h2 class="section-title" data-i18n="resume.section.experience">Experience</h2>
             </div>
-            <div class="timeline">
-              <!--
-                TO ADD: Copy this block for each position.
-                <div class="timeline-item">
-                  <div class="timeline-date">2022 – Present</div>
-                  <div class="timeline-title">Job Title</div>
-                  <div class="timeline-org">Company Name</div>
-                  <div class="timeline-body">Description of responsibilities and achievements.</div>
-                </div>
-              -->
-              <div class="timeline-item">
-                <div class="timeline-date">2021 – Present</div>
-                <div class="timeline-title">Software Engineer</div>
-                <div class="timeline-org">—</div>
-                <div class="timeline-body">
-                  <!-- Fill in your experience here -->
-                </div>
-              </div>
-            </div>
+            <div id="experience"></div>
           </section>
 
           <hr class="divider">
 
-          <!-- Education -->
           <section class="section">
             <div class="section-header">
               <h2 class="section-title" data-i18n="resume.section.education">Education</h2>
             </div>
-            <div class="timeline">
-              <!--
-                TO ADD: Copy this block for each degree.
-              -->
-              <div class="timeline-item">
-                <div class="timeline-date">—</div>
-                <div class="timeline-title">—</div>
-                <div class="timeline-org">—</div>
-              </div>
-            </div>
+            <div id="education"></div>
           </section>
-
         </div>
 
-        <!-- Sidebar -->
         <aside class="resume-sidebar">
-
-          <!-- Download -->
           <div class="sidebar-card">
             <div class="sidebar-card-title" data-i18n="resume.download">Download PDF</div>
-            <!-- Replace href with actual PDF path once uploaded -->
+            <!-- PDF 업로드 후 href 를 실제 경로로 교체 -->
             <a href="#" class="btn btn-primary" style="width:100%; justify-content:center;" data-i18n="resume.download">Download PDF</a>
           </div>
 
-          <!-- Skills -->
           <div class="sidebar-card">
             <div class="sidebar-card-title" data-i18n="resume.section.skills">Skills</div>
-
-            <div style="margin-bottom: var(--space-5);">
-              <div class="skill-group-title">Languages</div>
-              <div class="skill-tags">
-                <!-- TO ADD: fill in your languages -->
-                <span class="tag">—</span>
-              </div>
-            </div>
-
-            <div style="margin-bottom: var(--space-5);">
-              <div class="skill-group-title">Frameworks & Tools</div>
-              <div class="skill-tags">
-                <!-- TO ADD: fill in your tools -->
-                <span class="tag">—</span>
-              </div>
-            </div>
-
-            <div>
-              <div class="skill-group-title">Platforms</div>
-              <div class="skill-tags">
-                <!-- TO ADD: fill in your platforms -->
-                <span class="tag">iOS</span>
-                <span class="tag">Android</span>
-              </div>
-            </div>
+            <div id="skills"></div>
           </div>
 
-          <!-- Contact -->
           <div class="sidebar-card">
-            <div class="sidebar-card-title">Links</div>
-            <div class="footer-links" style="flex-direction: column; align-items: flex-start; gap: var(--space-3);">
-              <a href="https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/" target="_blank" rel="noopener noreferrer">
-                LinkedIn ↗
-              </a>
-              <a href="https://github.com/jleesdev" target="_blank" rel="noopener noreferrer">
-                GitHub ↗
-              </a>
-            </div>
+            <div class="sidebar-card-title" data-i18n="resume.section.links">Links</div>
+            <div class="footer-links" id="resume-links" style="flex-direction: column; align-items: flex-start; gap: var(--space-3);"></div>
           </div>
-
         </aside>
       </div>
     </div>
@@ -208,6 +143,47 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/i18n.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="/js/content.js"></script>
+  <script>
+    function timeline(items) {
+      if (!items.length) return `<p class="empty-state">${Content.escapeHtml(t('resume.empty'))}</p>`;
+
+      const rows = items.map(item => {
+        const body = Content.markdown(Content.pick(item.body));
+        return `
+          <div class="timeline-item">
+            <div class="timeline-date">${Content.escapeHtml(Content.pick(item.period))}</div>
+            <div class="timeline-title">${Content.escapeHtml(Content.pick(item.title))}</div>
+            <div class="timeline-org">${Content.escapeHtml(Content.pick(item.org))}</div>
+            ${body ? `<div class="timeline-body md-body">${body}</div>` : ''}
+          </div>`;
+      }).join('');
+
+      return `<div class="timeline">${rows}</div>`;
+    }
+
+    function skills(groups) {
+      return groups.map((group, i) => `
+        <div style="margin-bottom: ${i === groups.length - 1 ? '0' : 'var(--space-5)'};">
+          <div class="skill-group-title">${Content.escapeHtml(group.label)}</div>
+          <div class="skill-tags">
+            ${group.items.map(item => `<span class="tag">${Content.escapeHtml(item)}</span>`).join('')}
+          </div>
+        </div>`).join('');
+    }
+
+    async function render() {
+      const idx = await Content.index();
+      const resume = idx.resume || {};
+
+      document.getElementById('experience').innerHTML = timeline(resume.experience || []);
+      document.getElementById('education').innerHTML = timeline(resume.education || []);
+      document.getElementById('skills').innerHTML = skills(resume.skills || []);
+      document.getElementById('resume-links').innerHTML = Content.renderLinks(resume.links || []);
+    }
+
+    document.addEventListener('i18n:applied', render);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

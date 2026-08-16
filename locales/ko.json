@@ -3,6 +3,7 @@
   "nav.work": "Work",
   "nav.resume": "이력서",
   "nav.portfolio": "포트폴리오",
+  "nav.journal": "작업 히스토리",
   "nav.life": "Life",
 
   "hero.name": "이종원",
@@ -28,8 +29,26 @@
   "resume.section.skills": "기술",
   "resume.download": "PDF 다운로드",
 
+  "resume.section.links": "링크",
+  "resume.empty": "아직 등록된 항목이 없습니다.",
+
   "portfolio.title": "포트폴리오",
   "portfolio.subtitle": "설계하고 개발한 프로젝트들",
+  "portfolio.details": "자세히",
+  "portfolio.empty": "아직 등록된 프로젝트가 없습니다.",
+
+  "journal.title": "작업 히스토리",
+  "journal.subtitle": "프로젝트별 작업 히스토리",
+  "journal.filter.all": "전체",
+  "journal.empty": "아직 작성된 기록이 없습니다.",
+  "journal.private": "비공개",
+
+  "project.journal": "작업 히스토리",
+  "project.notfound": "프로젝트를 찾을 수 없습니다.",
+  "project.status.active": "진행 중",
+  "project.status.completed": "완료",
+  "project.status.paused": "보류",
+  "project.status.archived": "보관",
 
   "otl.tagline.line1": "움직이고, 줄 세워서, 클리어하라!",
   "otl.tagline.line2": "간단하지만 중독적인 라인 퍼즐 게임!",

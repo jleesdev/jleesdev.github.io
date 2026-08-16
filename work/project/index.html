@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jongwon Lee — Project">
+  <meta name="base-url" content="">
+  <title>Project — jlee</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <style>
+    .project-head {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+
+    .project-hero h1 {
+      font-size: var(--text-4xl);
+      font-weight: var(--font-bold);
+      letter-spacing: -0.02em;
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-3);
+    }
+
+    .project-hero {
+      padding: var(--space-16) 0 var(--space-10);
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--space-12);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <div class="nav-breadcrumb">
+        <a href="/" class="nav-logo" aria-label="Home">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </a>
+        <span class="nav-breadcrumb-sep">/</span>
+        <a href="/work/portfolio/" class="nav-breadcrumb-link" data-i18n="nav.portfolio">Portfolio</a>
+        <span class="nav-breadcrumb-sep">/</span>
+        <span class="nav-breadcrumb-link" id="crumb"></span>
+      </div>
+      <div class="lang-selector">
+        <button class="lang-option" data-lang="en">EN</button>
+        <button class="lang-option" data-lang="ko">KO</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" id="project-root"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© <span id="year"></span> Jongwon Lee. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/%EC%A2%85%EC%9B%90-%EC%9D%B4-597746136/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/jleesdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/content.js"></script>
+  <script>
+    const rootEl = document.getElementById('project-root');
+    const crumbEl = document.getElementById('crumb');
+    const projectId = new URLSearchParams(location.search).get('id') || '';
+
+    function statusLabel(status) {
+      const key = `project.status.${status}`;
+      const label = t(key);
+      return label === key ? status : label;
+    }
+
+    function renderJournal(entries, title) {
+      if (!entries.length) {
+        return `<p class="empty-state">${Content.escapeHtml(t('journal.empty'))}</p>`;
+      }
+      const items = entries.map(entry => `
+        <div class="timeline-item">
+          <div class="journal-head">
+            <span class="timeline-date" style="margin-bottom:0;">${Content.formatDate(entry.date)}</span>
+            ${entry.visibility === 'private'
+              ? `<span class="badge badge-private">${Content.escapeHtml(t('journal.private'))}</span>` : ''}
+          </div>
+          <div class="timeline-title">${Content.escapeHtml(Content.pick(entry.title))}</div>
+          ${Content.renderTags(entry.tags)}
+          <div class="md-body" style="margin-top: var(--space-3);">${Content.markdown(Content.pick(entry.body))}</div>
+          ${entry.links.length ? `<div class="journal-links">${Content.renderLinks(entry.links)}</div>` : ''}
+        </div>`).join('');
+
+      return `<div class="timeline">${items}</div>`;
+    }
+
+    async function render() {
+      const idx = await Content.index();
+      const project = (idx.projects || []).find(p => p.id === projectId);
+
+      if (!project) {
+        crumbEl.textContent = '—';
+        rootEl.innerHTML = `
+          <div class="page-hero">
+            <h1>—</h1>
+            <p>${Content.escapeHtml(t('project.notfound'))}</p>
+          </div>`;
+        return;
+      }
+
+      const title = Content.pick(project.title);
+      document.title = `${title} — jlee`;
+      crumbEl.textContent = title;
+
+      const entries = Content.journalFor(idx, project.id);
+      const period = Content.pick(project.period);
+
+      rootEl.innerHTML = `
+        <div class="project-hero">
+          <div class="project-head">
+            <span class="badge badge-accent">${Content.escapeHtml(statusLabel(project.status))}</span>
+            ${period ? `<span class="badge">${Content.escapeHtml(period)}</span>` : ''}
+          </div>
+          <h1>${Content.escapeHtml(title)}</h1>
+          <div class="md-body" style="font-size: var(--text-base);">${Content.markdown(Content.pick(project.body))}</div>
+          ${Content.renderTags(project.tags)}
+          ${project.links.length
+            ? `<div class="journal-links" style="margin-top: var(--space-5);">${Content.renderLinks(project.links)}</div>`
+            : ''}
+        </div>
+
+        <section class="section" style="padding-top: 0;">
+          <div class="section-header">
+            <h2 class="section-title">${Content.escapeHtml(t('project.journal'))}</h2>
+          </div>
+          ${renderJournal(entries, title)}
+        </section>`;
+    }
+
+    document.addEventListener('i18n:applied', render);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

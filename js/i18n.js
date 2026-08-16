@@ -59,6 +59,9 @@ function applyTranslations() {
 
   document.documentElement.lang = currentLang;
   updateLangSelector();
+
+  // content.js 로 렌더하는 페이지는 이 이벤트를 받아 다시 그린다.
+  document.dispatchEvent(new CustomEvent('i18n:applied', { detail: { lang: currentLang } }));
 }
 
 function updateLangSelector() {
@@ -88,6 +91,9 @@ async function switchLang(lang) {
 function t(key) {
   return translations[key] ?? key;
 }
+
+// 다른 스크립트(content.js 등)에서 현재 언어를 읽기 위한 접근자
+window.getCurrentLang = () => currentLang;
 
 async function initI18n() {
   currentLang = detectLang();
