@@ -87,10 +87,14 @@
       const counts = {};
       idx.journal.forEach(e => { counts[e.project] = (counts[e.project] || 0) + 1; });
 
+      // 없는 프로젝트가 지정되면 전체로 되돌린다.
+      if (activeProject && !projects[activeProject]) activeProject = '';
+
       const chips = [{ id: '', label: t('journal.filter.all'), count: idx.journal.length }];
       idx.projects
-        .filter(p => counts[p.id])
-        .forEach(p => chips.push({ id: p.id, label: Content.pick(p.title), count: counts[p.id] }));
+        // 기록이 있는 프로젝트 + 선택된 프로젝트(기록이 0건이어도 선택 상태가 보이게)
+        .filter(p => counts[p.id] || p.id === activeProject)
+        .forEach(p => chips.push({ id: p.id, label: Content.pick(p.title), count: counts[p.id] || 0 }));
 
       filtersEl.innerHTML = chips.map(c => `
         <button class="chip${c.id === activeProject ? ' active' : ''}" data-project="${Content.escapeHtml(c.id)}">

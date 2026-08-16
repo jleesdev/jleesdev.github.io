@@ -8,13 +8,15 @@ Static personal portfolio site hosted on GitHub Pages. No build process, no fram
 
 ## Development
 
-Open `index.html` directly in a browser, or use any static file server:
+Pages fetch `content/index.json`, so `file://` will not work — serve the directory:
 
 ```bash
-python3 -m http.server 8000
-# or
-npx serve .
+python3 tools/dev_server.py 8000
 ```
+
+This is `http.server` with caching disabled. Plain `python3 -m http.server` sends no cache
+headers, and browsers then hold on to stale CSS/JS long enough to make edits look like they
+did nothing.
 
 No build step, no linting setup, no test suite.
 
@@ -93,7 +95,15 @@ The summary comes from optional `summary_en`/`summary_ko` frontmatter, falling b
 body's first line. `?entry=<id>` deep-links to an expanded entry.
 
 The work history is reachable from the clock icon in the nav (`.nav-icon`), not from the
-home page list.
+home page list. On a page that belongs to a project, that icon links straight to the
+project's own history. `js/main.js` resolves which project a page belongs to:
+
+```html
+<meta name="content-project" content="on-the-line">
+```
+
+`/work/project/` uses its `?id=` instead. Pages with neither link to the full history.
+Add the meta tag to any new page that belongs to a project.
 
 ### CSS Design System
 

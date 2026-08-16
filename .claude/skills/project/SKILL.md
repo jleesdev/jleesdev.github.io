@@ -49,6 +49,10 @@ Project description shown on the detail page.
 - `order` 는 정렬 순서(작을수록 먼저). 기존 값과 겹치지 않게 잡는다
 - `summary` 는 카드에 그대로 노출되므로 한 문장으로 짧게
 
+그 프로젝트 전용 페이지가 따로 있다면(예: `life/on-the-line/`) 그 HTML `<head>` 에
+`<meta name="content-project" content="<project-id>">` 를 넣는다. nav 의 히스토리 아이콘이
+그 프로젝트의 히스토리로 바로 가게 된다.
+
 ## 수정
 
 - 상태 변경 → `status` 만 바꾼다
