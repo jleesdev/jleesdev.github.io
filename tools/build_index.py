@@ -194,6 +194,8 @@ def collect_journal(root, visibility_default="public"):
             "date": entry_date,
             "project": meta.get("project", ""),
             "title": i18n_field(meta, "title", path.stem),
+            # 없으면 목록에서 본문 첫 줄로 자동 요약한다 (js/content.js).
+            "summary": i18n_field(meta, "summary"),
             "tags": as_list(meta.get("tags")),
             "links": parse_links(meta.get("links")),
             "visibility": meta.get("visibility", visibility_default),

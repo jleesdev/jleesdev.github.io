@@ -57,6 +57,16 @@ function applyTranslations() {
     if (val !== undefined) el.href = val;
   });
 
+  // 아이콘 버튼처럼 보이는 글자가 없는 요소용 — title 과 aria-label 을 함께 채운다.
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    const key = el.getAttribute('data-i18n-title');
+    const val = translations[key];
+    if (val !== undefined) {
+      el.title = val;
+      el.setAttribute('aria-label', val);
+    }
+  });
+
   document.documentElement.lang = currentLang;
   updateLangSelector();
 

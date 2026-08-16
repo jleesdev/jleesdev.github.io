@@ -56,6 +56,33 @@ a.nav-breadcrumb-link:hover {
 }
 
 /* Language selector */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.nav-icon:hover {
+  color: var(--color-accent);
+  background: var(--color-bg-subtle);
+}
+
+.nav-icon.active {
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+
 .lang-selector {
   display: flex;
   align-items: center;
@@ -639,6 +666,71 @@ a.nav-breadcrumb-link:hover {
   flex-wrap: wrap;
   gap: var(--space-3);
   margin-bottom: var(--space-2);
+}
+
+.journal-head .timeline-date {
+  margin-bottom: 0;
+}
+
+/* ── 접기/펼치기 ── */
+
+.journal-toggle {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.journal-toggle .timeline-title {
+  margin-bottom: 0;
+  transition: color var(--transition-fast);
+}
+
+.journal-toggle:hover .timeline-title {
+  color: var(--color-accent);
+}
+
+.journal-chevron {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: 1;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.journal-item.expanded .journal-chevron {
+  transform: rotate(90deg);
+  color: var(--color-accent);
+}
+
+.journal-item .skill-tags {
+  margin-top: var(--space-3);
+}
+
+.journal-summary {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  margin-top: var(--space-3);
+}
+
+.journal-detail {
+  display: none;
+  margin-top: var(--space-4);
+}
+
+.journal-item.expanded .journal-summary {
+  display: none;
+}
+
+.journal-item.expanded .journal-detail {
+  display: block;
 }
 
 .journal-project {

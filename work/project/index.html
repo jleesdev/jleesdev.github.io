@@ -58,9 +58,17 @@
         <span class="nav-breadcrumb-sep">/</span>
         <span class="nav-breadcrumb-link" id="crumb"></span>
       </div>
-      <div class="lang-selector">
-        <button class="lang-option" data-lang="en">EN</button>
-        <button class="lang-option" data-lang="ko">KO</button>
+      <div class="nav-actions">
+        <a href="/work/journal/" class="nav-icon" data-i18n-title="nav.journal" title="Work History" aria-label="Work History">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <polyline points="12 7 12 12 15.5 14"/>
+          </svg>
+        </a>
+        <div class="lang-selector">
+          <button class="lang-option" data-lang="en">EN</button>
+          <button class="lang-option" data-lang="ko">KO</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -85,7 +93,9 @@
   <script>
     const rootEl = document.getElementById('project-root');
     const crumbEl = document.getElementById('crumb');
-    const projectId = new URLSearchParams(location.search).get('id') || '';
+    const params = new URLSearchParams(location.search);
+    const projectId = params.get('id') || '';
+    const openEntry = params.get('entry') || '';
 
     function statusLabel(status) {
       const key = `project.status.${status}`;
@@ -93,22 +103,14 @@
       return label === key ? status : label;
     }
 
-    function renderJournal(entries, title) {
+    function renderJournal(entries) {
       if (!entries.length) {
         return `<p class="empty-state">${Content.escapeHtml(t('journal.empty'))}</p>`;
       }
-      const items = entries.map(entry => `
-        <div class="timeline-item">
-          <div class="journal-head">
-            <span class="timeline-date" style="margin-bottom:0;">${Content.formatDate(entry.date)}</span>
-            ${entry.visibility === 'private'
-              ? `<span class="badge badge-private">${Content.escapeHtml(t('journal.private'))}</span>` : ''}
-          </div>
-          <div class="timeline-title">${Content.escapeHtml(Content.pick(entry.title))}</div>
-          ${Content.renderTags(entry.tags)}
-          <div class="md-body" style="margin-top: var(--space-3);">${Content.markdown(Content.pick(entry.body))}</div>
-          ${entry.links.length ? `<div class="journal-links">${Content.renderLinks(entry.links)}</div>` : ''}
-        </div>`).join('');
+      // 프로젝트 안이므로 항목마다 프로젝트 이름을 다시 붙이지 않는다.
+      const items = entries
+        .map(entry => Content.entryHtml(entry, { showProject: false, expanded: entry.id === openEntry }))
+        .join('');
 
       return `<div class="timeline">${items}</div>`;
     }
@@ -152,9 +154,11 @@
           <div class="section-header">
             <h2 class="section-title">${Content.escapeHtml(t('project.journal'))}</h2>
           </div>
-          ${renderJournal(entries, title)}
+          ${renderJournal(entries)}
         </section>`;
     }
+
+    Content.bindEntryToggles(rootEl);
 
     document.addEventListener('i18n:applied', render);
     document.getElementById('year').textContent = new Date().getFullYear();

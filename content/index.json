@@ -94,6 +94,7 @@
         "en": "Markdown-backed content and work history",
         "ko": "마크다운 기반 콘텐츠·작업 히스토리 구조 도입"
       },
+      "summary": {},
       "tags": [
         "tooling",
         "content"

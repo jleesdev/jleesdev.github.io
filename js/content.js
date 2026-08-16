@@ -235,9 +235,100 @@
     return `<div class="skill-tags">${tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>`;
   }
 
+  function tr(key) {
+    return typeof global.t === 'function' ? global.t(key) : key;
+  }
+
+  /** 본문 첫 블록을 평문 한 줄로 줄인다. 목록의 요약으로 쓴다. */
+  function summarize(md, maxLen) {
+    const limit = maxLen || 140;
+    const lines = String(md || '')
+      .replace(/^[ \t]*<!--[\s\S]*?-->[ \t]*$/gm, '')
+      .replace(/```[\s\S]*?```/g, ' ')
+      .split('\n')
+      .map(line => line.trim())
+      .filter(Boolean);
+
+    if (!lines.length) return '';
+
+    const text = lines[0]
+      .replace(/^#{1,4}\s*/, '')
+      .replace(/^[-*]\s+/, '')
+      .replace(/^\d+\.\s+/, '')
+      .replace(/^>\s?/, '')
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*([^*]+)\*/g, '$1')
+      .trim();
+
+    return text.length > limit ? text.slice(0, limit).trimEnd() + '…' : text;
+  }
+
+  function entrySummary(entry) {
+    return pick(entry.summary) || summarize(pick(entry.body));
+  }
+
+  /**
+   * 히스토리 항목 한 개. 접힌 상태에서는 요약만, 펼치면 본문 전체가 보인다.
+   * opts: { project, expanded, showProject }
+   */
+  function entryHtml(entry, opts) {
+    const o = opts || {};
+    const project = o.project;
+    const expanded = !!o.expanded;
+
+    const projectLink = (project && o.showProject !== false)
+      ? `<a class="journal-project" href="/work/project/?id=${encodeURIComponent(project.id)}">${escapeHtml(pick(project.title))}</a>`
+      : '';
+    const privateBadge = entry.visibility === 'private'
+      ? `<span class="badge badge-private">${escapeHtml(tr('journal.private'))}</span>`
+      : '';
+    const summary = entrySummary(entry);
+
+    return `
+      <div class="timeline-item journal-item${expanded ? ' expanded' : ''}" data-entry="${escapeHtml(entry.id)}">
+        <div class="journal-head">
+          <span class="timeline-date">${formatDate(entry.date)}</span>
+          ${projectLink}
+          ${privateBadge}
+        </div>
+        <button class="journal-toggle" type="button" aria-expanded="${expanded}">
+          <span class="journal-chevron" aria-hidden="true">›</span>
+          <span class="timeline-title">${escapeHtml(pick(entry.title))}</span>
+        </button>
+        ${renderTags(entry.tags)}
+        ${summary ? `<p class="journal-summary">${escapeHtml(summary)}</p>` : ''}
+        <div class="journal-detail">
+          <div class="md-body">${markdown(pick(entry.body))}</div>
+          ${entry.links && entry.links.length ? `<div class="journal-links">${renderLinks(entry.links)}</div>` : ''}
+        </div>
+      </div>`;
+  }
+
+  /** 컨테이너에 한 번만 걸어두면 다시 렌더해도 계속 동작한다. */
+  function bindEntryToggles(root) {
+    root.addEventListener('click', event => {
+      const button = event.target.closest('.journal-toggle');
+      if (!button) return;
+
+      const item = button.closest('.journal-item');
+      const expanded = item.classList.toggle('expanded');
+      button.setAttribute('aria-expanded', String(expanded));
+
+      // 펼친 항목을 URL 에 남겨 링크로 공유할 수 있게 한다.
+      const url = new URL(location.href);
+      if (expanded) url.searchParams.set('entry', item.dataset.entry);
+      else if (url.searchParams.get('entry') === item.dataset.entry) url.searchParams.delete('entry');
+      history.replaceState({}, '', url);
+    });
+  }
+
   global.Content = {
     index, pick, markdown, escapeHtml, safeUrl,
     projectMap, journalFor, formatDate, monthOf,
-    renderLinks, renderTags, currentLang
+    renderLinks, renderTags, currentLang,
+    summarize, entrySummary, entryHtml, bindEntryToggles
   };
 })(window);

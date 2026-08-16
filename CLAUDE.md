@@ -88,6 +88,13 @@ never enter the public bundle even if they sit in `content/`.
 Markdown support is a deliberate subset (`js/content.js`): headings, lists, blockquotes,
 fenced code, `---`, bold/italic, inline code, links, images. No tables, no raw HTML.
 
+History entries render collapsed — one summary line, expanding to the full body on click.
+The summary comes from optional `summary_en`/`summary_ko` frontmatter, falling back to the
+body's first line. `?entry=<id>` deep-links to an expanded entry.
+
+The work history is reachable from the clock icon in the nav (`.nav-icon`), not from the
+home page list.
+
 ### CSS Design System
 
 All design tokens live in `css/variables.css` (colors, spacing, typography, shadows, transitions). Use these variables — never hardcode values. Key tokens:
