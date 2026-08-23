@@ -169,6 +169,10 @@ def collect_projects(root):
             "tags": as_list(meta.get("tags")),
             "links": parse_links(meta.get("links")),
             "showcase": bool(meta.get("showcase", False)),
+            # 프로젝트 전용 페이지가 있으면 포폴 카드가 상세 대신 그쪽으로 간다.
+            "page": meta.get("page", ""),
+            # 포폴 카드에 띄울 앱 아이콘 (없으면 카드에 아이콘을 안 그린다).
+            "icon": meta.get("icon", ""),
             "order": meta.get("order", 999),
             "body": body,
         })

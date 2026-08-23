@@ -81,28 +81,30 @@
   <script>
     const projectsEl = document.getElementById('projects');
 
-    function card(project, journalCount) {
-      const href = `/work/project/?id=${encodeURIComponent(project.id)}`;
+    function card(project) {
+      // 프로젝트 전용 페이지(page)가 있으면 그쪽으로, 없으면 공용 상세로 보낸다.
+      const href = project.page || `/work/project/?id=${encodeURIComponent(project.id)}`;
       const title = Content.escapeHtml(Content.pick(project.title));
-      const summary = Content.escapeHtml(Content.pick(project.summary));
-      const journalLabel = Content.escapeHtml(t('project.journal'));
+      // 요약의 \n 은 줄바꿈으로 그린다. frontmatter 가 한 줄짜리라 실제 개행을 못 담는다.
+      const summary = Content.escapeHtml(Content.pick(project.summary)).replace(/\\n/g, '<br>');
 
+      // 카드 전체가 링크다. 안에 또 링크를 두면 어디를 눌러야 할지 흐려지고,
+      // 중첩 <a> 는 HTML 상으로도 성립하지 않는다.
       return `
-        <div class="project-card">
+        <a class="project-card" href="${href}">
           <div class="project-card-body">
-            <div class="project-card-title"><a href="${href}">${title}</a></div>
-            <div class="project-card-desc">${summary}</div>
-            <div class="skill-tags" style="margin-bottom: var(--space-4);">
+            <div class="project-card-head">
+              ${project.icon ? `<img class="project-card-icon" src="${Content.escapeHtml(project.icon)}" alt="">` : ''}
+              <div class="project-card-headtext">
+                <div class="project-card-title">${title}</div>
+                <div class="project-card-desc">${summary}</div>
+              </div>
+            </div>
+            <div class="skill-tags">
               ${project.tags.map(tag => `<span class="tag">${Content.escapeHtml(tag)}</span>`).join('')}
             </div>
-            <div class="project-card-links">
-              <a href="${href}">${Content.escapeHtml(t('portfolio.details'))}</a>
-              ${journalCount ? `<a href="/work/journal/?project=${encodeURIComponent(project.id)}">${journalLabel} ${journalCount}</a>` : ''}
-              ${/* 카드에는 외부 링크만. 사이트 내부 링크는 상세 페이지에서 전부 보여준다. */ ''}
-              ${Content.renderLinks(project.links.filter(l => /^https?:/i.test(l.url)))}
-            </div>
           </div>
-        </div>`;
+        </a>`;
     }
 
     async function render() {
@@ -114,10 +116,7 @@
         return;
       }
 
-      const counts = {};
-      (idx.journal || []).forEach(e => { counts[e.project] = (counts[e.project] || 0) + 1; });
-
-      projectsEl.innerHTML = showcased.map(p => card(p, counts[p.id] || 0)).join('');
+      projectsEl.innerHTML = showcased.map(card).join('');
     }
 
     document.addEventListener('i18n:applied', render);

@@ -379,6 +379,12 @@ a.nav-breadcrumb-link:hover {
   flex-direction: column;
 }
 
+/* 카드 전체가 링크다. 링크 기본 스타일이 카드 안 글자에 묻어나지 않게 막는다. */
+a.project-card {
+  text-decoration: none;
+  color: inherit;
+}
+
 .project-card:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-3px);
@@ -392,13 +398,34 @@ a.nav-breadcrumb-link:hover {
   flex-direction: column;
 }
 
+.project-card-head {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  margin-bottom: var(--space-4);
+}
+
+.project-card-headtext {
+  min-width: 0;   /* flex 자식이 긴 글자 때문에 카드를 밀지 않게 */
+}
+
+.project-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  flex-shrink: 0;
+}
+
 .project-card-title {
-  font-size: var(--text-base);
+  /* 카드 폭이 좁아지면 같이 줄어든다. 긴 제목이 카드를 밀고 나가지 않게. */
+  font-size: clamp(var(--text-sm), 2.4vw, var(--text-lg));
   font-weight: var(--font-semibold);
   margin-bottom: var(--space-2);
+  overflow-wrap: anywhere;
 }
 
 .project-card-desc {
+  overflow-wrap: anywhere;
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: var(--leading-relaxed);
