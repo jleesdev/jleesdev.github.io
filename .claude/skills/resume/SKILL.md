@@ -1,9 +1,20 @@
 ---
 name: resume
-description: 이력서의 경력·학력·기술 스택 항목을 추가·수정·삭제한다. "경력 추가해줘", "이력서 업데이트", "학력 고쳐줘", "스킬에 Swift 추가" 같은 요청에 사용. Use when the user wants to update their resume — experience, education, or skills.
+description: 개인 사이트(jleesdev.github.io)의 이력서 — 경력·학력·기술 스택 항목을 추가·수정·삭제한다. "경력 추가해줘", "이력서 업데이트", "학력 고쳐줘", "스킬에 Swift 추가" 같은 요청에 사용. Use when the user wants to update the resume on their personal site — experience, education, or skills.
 ---
 
 # 이력서 관리
+
+> **작업 위치.** 이 스킬은 개인 사이트 레포(`~/work/jleesdev.github.io`)의 콘텐츠를 다룬다.
+> 다른 프로젝트에서 세션을 열었더라도 먼저 그 디렉터리로 이동한 뒤 작업한다.
+> 아래의 모든 경로와 명령은 그 디렉터리 기준이다.
+>
+> ```bash
+> cd ~/work/jleesdev.github.io && git status --short
+> ```
+>
+> 작업을 마치면 원래 있던 디렉터리로 돌아온다. 사이트 레포의 변경사항만 커밋하고,
+> 세션이 열려 있던 다른 레포는 건드리지 않는다.
 
 ```
 content/resume/experience/<id>.md   경력 (항목 1개 = 파일 1개)

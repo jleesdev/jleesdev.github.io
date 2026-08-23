@@ -1,9 +1,20 @@
 ---
 name: project
-description: 사이트의 프로젝트를 추가·수정·삭제하고 상태나 포트폴리오 노출을 바꾼다. "프로젝트 추가해줘", "이 프로젝트 완료로 바꿔줘", "포트폴리오에서 내려줘", 프로젝트 설명·태그·링크를 고칠 때 사용. Use when the user wants to add a project, change its status, toggle portfolio visibility, or edit project details.
+description: 개인 사이트(jleesdev.github.io)의 프로젝트를 추가·수정·삭제하고 상태나 포트폴리오 노출을 바꾼다. "사이트에 프로젝트 추가해줘", "이 프로젝트 완료로 바꿔줘", "포트폴리오에서 내려줘", 프로젝트 설명·태그·링크를 고칠 때 사용. Use when the user wants to add a project to their personal site, change its status, toggle portfolio visibility, or edit project details.
 ---
 
 # 프로젝트 관리
+
+> **작업 위치.** 이 스킬은 개인 사이트 레포(`~/work/jleesdev.github.io`)의 콘텐츠를 다룬다.
+> 다른 프로젝트에서 세션을 열었더라도 먼저 그 디렉터리로 이동한 뒤 작업한다.
+> 아래의 모든 경로와 명령은 그 디렉터리 기준이다.
+>
+> ```bash
+> cd ~/work/jleesdev.github.io && git status --short
+> ```
+>
+> 작업을 마치면 원래 있던 디렉터리로 돌아온다. 사이트 레포의 변경사항만 커밋하고,
+> 세션이 열려 있던 다른 레포는 건드리지 않는다.
 
 `content/projects/<id>.md` 한 파일이 프로젝트 하나다. 이 파일이 포트폴리오 카드와
 프로젝트 상세 페이지(`/work/project/?id=<id>`) 양쪽을 만든다. **포트폴리오는 별도 데이터가 아니다.**

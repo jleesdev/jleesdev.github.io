@@ -1,9 +1,20 @@
 ---
 name: history
-description: 작업 히스토리 항목을 추가·수정·삭제한다. "오늘 작업 기록해줘", "이거 히스토리에 남겨줘", "어제 한 일 정리해줘", 특정 프로젝트의 작업 내역을 사이트에 남기거나 이미 쓴 기록을 고칠 때 사용. Use when the user wants to log what they worked on, add or edit a work history entry, or record progress on a project.
+description: 개인 사이트(jleesdev.github.io)의 작업 히스토리 항목을 추가·수정·삭제한다. "오늘 작업 기록해줘", "이거 히스토리에 남겨줘", "어제 한 일 정리해줘" 처럼 작업 내역을 사이트에 남기거나 이미 쓴 기록을 고칠 때 사용. 다른 프로젝트에서 작업하던 중에도 호출될 수 있다. Use when the user wants to log what they worked on to their personal site, add or edit a work history entry, or record progress on a project.
 ---
 
 # 작업 히스토리 항목 관리
+
+> **작업 위치.** 이 스킬은 개인 사이트 레포(`~/work/jleesdev.github.io`)의 콘텐츠를 다룬다.
+> 다른 프로젝트에서 세션을 열었더라도 먼저 그 디렉터리로 이동한 뒤 작업한다.
+> 아래의 모든 경로와 명령은 그 디렉터리 기준이다.
+>
+> ```bash
+> cd ~/work/jleesdev.github.io && git status --short
+> ```
+>
+> 작업을 마치면 원래 있던 디렉터리로 돌아온다. 사이트 레포의 변경사항만 커밋하고,
+> 세션이 열려 있던 다른 레포는 건드리지 않는다.
 
 `content/journal/` (공개) 또는 `content-private/journal/` (비공개)의 md 파일을 다룬다.
 포맷과 빌드 규칙은 `CLAUDE.md` 의 Content System 절을 따른다.
