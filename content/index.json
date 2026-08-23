@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-16",
+  "generated": "2026-08-23",
   "includesPrivate": false,
   "projects": [
     {
@@ -10,8 +10,8 @@
         "ko": "On The Line: 퍼즐 게임"
       },
       "summary": {
-        "en": "A mobile puzzle game published on the App Store. Draw lines to solve increasingly challenging levels.",
-        "ko": "App Store에 출시한 모바일 퍼즐 게임. 같은 오브젝트를 한 줄로 모아 없애는 규칙의 캐주얼 퍼즐."
+        "en": "Move, Line Up, And Clear!\\nSimple yet addictive line puzzle game!",
+        "ko": "움직이고, 줄 세워서, 클리어하라!\\n간단하지만 중독적인 라인 퍼즐 게임!"
       },
       "period": {
         "en": "2025 – Present",
@@ -21,12 +21,19 @@
       "tags": [
         "iOS",
         "Unity",
+        "WebGL",
+        "App Store",
+        "Apps in Toss",
         "Mobile Game"
       ],
       "links": [
         {
           "label": "App Store",
           "url": "https://apps.apple.com/app/id6760333150"
+        },
+        {
+          "label": "Apps in Toss",
+          "url": "https://minion.toss.im/j7201NV"
         },
         {
           "label": "Support",
@@ -38,10 +45,12 @@
         }
       ],
       "showcase": true,
+      "page": "/life/on-the-line/",
+      "icon": "/life/on-the-line/ontheline_logo_strawberry.png",
       "order": 1,
       "body": {
-        "ko": "가로·세로·대각선으로 같은 오브젝트 5개 이상을 이으면 사라지는 캐주얼 퍼즐 게임입니다.\n한 번 움직일 때마다 새 오브젝트 3개가 생성되고, 보드가 가득 차면 게임이 끝납니다.\n\n- 콤보 배수와 럭키 클리어 등 점수 규칙 설계\n- AdMob 리워드 광고 기반 되돌리기 기능\n- iOS 출시 및 운영",
-        "en": "A casual line puzzle: connect five or more identical objects horizontally, vertically, or\ndiagonally to clear them. Every move spawns three new objects, and the game ends when the\nboard fills up.\n\n- Scoring design including combo multipliers and lucky clears\n- Undo backed by AdMob rewarded ads\n- Shipped and maintained on iOS"
+        "ko": "가로·세로·대각선으로 같은 조각 5개 이상을 이으면 사라집니다. 조각을 고르고 빈 칸을 고르면\n그리로 걸어가는데, 경로가 막혀 있으면 갈 수 없습니다. 한 수 둘 때마다 새 조각 3개가 생기고\n놓을 자리가 없으면 끝나므로, 지금 지울 줄을 만드는 것만큼 어디를 비워둘지가 중요합니다.\n\n- 많이 지울수록 점수가 가파르게 오르는 `n × (n−4)` 곡선. 5개는 5점, 8개는 32점\n- 연속으로 지우면 배수가 붙는 콤보. 스폰된 조각이 저절로 줄을 맞추는 럭키 클리어와, 그 뒤로 이어지는 체인도 콤보로 누적됩니다\n- 되돌리기는 리워드 광고 한 번. 실수 하나로 판이 무너지는 게 이 규칙의 가장 큰 진입장벽이라 여기에 뒀습니다\n- 조각 모양을 바꾸는 피스 세트가 있고, 특정 기록을 채우면 새 세트가 열립니다",
+        "en": "Connect five or more identical pieces horizontally, vertically, or diagonally and they clear.\nPick a piece, pick an empty cell, and it walks there — but a blocked path is simply unavailable.\nEvery move spawns three new pieces and the game ends when there is nowhere to put them, so\ndeciding which cells to keep empty matters as much as building the next line.\n\n- An `n × (n−4)` scoring curve that pays off steeply for bigger clears: five pieces score 5, eight score 32\n- Consecutive clears stack a combo multiplier. Lucky clears, where spawned pieces complete a line on their own, and the chains that follow keep feeding it\n- Undo costs one rewarded ad. A single bad move can collapse a board, which is the sharpest edge for new players\n- Piece sets change how the pieces look, and hitting certain records unlocks new ones"
       }
     },
     {
@@ -76,7 +85,9 @@
           "url": "/work/journal/"
         }
       ],
-      "showcase": true,
+      "showcase": false,
+      "page": "",
+      "icon": "",
       "order": 2,
       "body": {
         "ko": "순수 HTML/CSS/바닐라 JS로 만든 정적 사이트입니다.\n\n- 콘텐츠는 `content/**/*.md` (frontmatter + 본문)에 두고, 페이지는 이를 렌더링만 합니다\n- EN/KO 전환은 한 파일 안에서 `<!-- lang:xx -->` 마커로 본문을 나눠 처리합니다\n- 작업 히스토리는 프로젝트 단위로 묶이고, 비공개 항목은 로컬에서만 보입니다",
@@ -85,6 +96,81 @@
     }
   ],
   "journal": [
+    {
+      "id": "2026-08-23-piece-sets",
+      "path": "content/journal/2026-08-23-piece-sets.md",
+      "date": "2026-08-23",
+      "project": "on-the-line",
+      "title": {
+        "en": "Piece sets and a fix for vanishing records",
+        "ko": "피스 세트 추가와 기록 유실 수정"
+      },
+      "summary": {
+        "en": "Added swappable piece sets and fixed records that were disappearing.",
+        "ko": "조각 모양을 바꾸는 피스 세트를 넣고, 기록이 간헐적으로 사라지던 문제를 수정."
+      },
+      "tags": [
+        "Unity",
+        "WebGL",
+        "Apps in Toss"
+      ],
+      "links": [],
+      "visibility": "public",
+      "body": {
+        "ko": "조각 모양을 바꿀 수 있는 피스 세트 기능을 넣고, 최고 점수와 기록이 간헐적으로 사라지던 문제를 잡았다.\n\n- 프로필에서 고른 피스 세트가 보드·미리보기에 즉시 반영되고 다음 실행에도 유지 — 부팅 때 저장된 선택을 아무도 읽지 않던 게 원인\n- `DESSERT PARTY` 세트 추가 — 300점, 2 COMBO, 한 번에 8개 제거를 모두 채우면 해금\n- 토스 스토리지 미러링을 키별 직렬화·병합으로 교체, 부팅 복원 전 쓰기는 보류 — 늦게 도착한 옛 값이 새 값을 덮거나 빈 값이 서버를 덮던 경로 차단\n- 점수 팝업 색을 스프라이트 실제 색에서 재추출, 세트 안 구분은 색 거리로 검증 — 조각과 정반대 색이 들어가 있던 것도 이때 발견\n- 다른 세트를 고른 뒤 기본 세트로 돌아오지 못하던 버그 수정 — 직렬화 라이브러리가 JSON 의 null 을 빈 객체로 바꿔 조건 없는 세트가 영구 잠금 상태였음",
+        "en": "Added piece sets so players can change how the pieces look, and fixed best scores and records that were disappearing now and then.\n\n- A set picked in the profile now applies to the board and preview immediately and survives a restart — nothing had been reading the saved choice at boot\n- `DESSERT PARTY` set added — unlocked by reaching 300 points, hitting a 2 COMBO, and clearing 8 pieces at once\n- Toss storage mirroring rewritten to serialise and coalesce writes per key, holding writes until the boot restore finishes — closing both a late stale write and an empty value overwriting the server\n- Score popup colours rederived from the actual sprite pixels, with colour distance verifying they stay distinguishable — one piece turned out to carry the opposite colour of its artwork\n- Fixed the default set being unselectable after switching away — the serialiser turns JSON null into an empty object, leaving condition-free sets permanently locked"
+      }
+    },
+    {
+      "id": "2026-08-21-save-reliability-layout",
+      "path": "content/journal/2026-08-21-save-reliability-layout.md",
+      "date": "2026-08-21",
+      "project": "on-the-line",
+      "title": {
+        "en": "Save reliability, SDK 3.x, and layout measured against real devices",
+        "ko": "저장 안정성과 SDK 3.x 전환, 레이아웃 실측 대응"
+      },
+      "summary": {
+        "en": "Fixed progress rolling back after leaving the app, and moved to SDK 3.x.",
+        "ko": "앱을 나갔다 오면 진행이 되돌아가던 문제를 잡고, SDK 3.x 로 전환."
+      },
+      "tags": [
+        "Unity",
+        "WebGL",
+        "Apps in Toss"
+      ],
+      "links": [],
+      "visibility": "public",
+      "body": {
+        "ko": "게임 도중 앱을 나갔다 돌아오면 진행이 되돌아가 있다는 제보를 받고 저장 구조를 뜯어봤다.\n저장이 \"떠나는 순간을 잡아서 한 번 쓴다\"에만 의존하고 있었는데, 토스 웹뷰는 백그라운드로 내려갈 때 JS 실행을 거의 즉시 멈춰서 그 한 번을 놓치면 판이 통째로 사라졌다.\n\n- 이탈 이벤트에 기대지 않도록 한 수마다 저장, 이탈 신호도 focus / pagehide / visibilitychange 로 다중 확보\n- 되돌리기 직후와 새 판 시작 직후에도 저장 — 취소한 수가 되살아나거나 옛 판이 뜨던 구간 차단\n- 앱인토스 SDK 2.10.8 에서 3.0.3 으로 전환\n- 서빙 Origin 변경으로 부팅 시 로컬 저장소가 비어, 토스 스토리지 복원을 기다린 뒤 시작 화면을 여는 순서로 재구성\n- 세이프에어리어 인셋 적용, 화면 배치를 고정 픽셀에서 보드 셀 기준으로 통일\n- 뷰포트 높이를 실측값으로 교체, 판 종료 통계를 한 곳으로 모아 같은 판이 두 번 기록되던 문제 제거\n- 토스 내비 알약 위치를 실기기 캡처로 재측정해 공식 규칙(iOS +5 / Android +10)에 정렬 — devtools 는 고정 줄에 그려서 실기기와 다름\n- 콘솔 Access denied 의 원인이 우리 패키지가 아니라 토스 CDN 캐시임을 확인",
+        "en": "Players reported that leaving the app mid-game and coming back rolled their progress backwards.\nSaving relied entirely on catching the moment the app leaves, but the Toss webview halts JS almost immediately when it backgrounds, so missing that one moment lost the whole board.\n\n- Save after every move instead of trusting the exit event, with the exit signal captured from focus, pagehide, and visibilitychange\n- Saves right after an undo and right after a new board is dealt, closing the windows where a cancelled move came back or a stale board appeared\n- Apps in Toss SDK moved from 2.10.8 to 3.0.3\n- The serving origin changed and left local storage empty on every boot, so the startup sequence now waits for the Toss storage restore before opening the start screen\n- Safe area insets applied, layout moved off fixed pixels onto board-cell units\n- Viewport height replaced with a measured value, end-of-game stats consolidated so a single game stopped being recorded twice\n- Toss navigation pill re-measured from device captures and aligned with the official rule (iOS +5 / Android +10) — devtools draws it on a fixed line, unlike a real device\n- Console's Access denied traced to Toss CDN caching rather than anything in our package"
+      }
+    },
+    {
+      "id": "2026-08-20-apps-in-toss-launch",
+      "path": "content/journal/2026-08-20-apps-in-toss-launch.md",
+      "date": "2026-08-20",
+      "project": "on-the-line",
+      "title": {
+        "en": "Launched On The Line as an Apps in Toss mini app",
+        "ko": "온더라인 앱인토스 미니앱 최초 출시"
+      },
+      "summary": {
+        "en": "Ported the iOS game to an Apps in Toss mini app and shipped the first build.",
+        "ko": "iOS 게임을 앱인토스 미니앱으로 포팅해 첫 출시."
+      },
+      "tags": [
+        "Unity",
+        "WebGL",
+        "Apps in Toss"
+      ],
+      "links": [],
+      "visibility": "public",
+      "body": {
+        "ko": "iOS로 서비스하던 온더라인을 앱인토스 미니앱으로 포팅해 처음 출시했다.\nUnity WebGL 빌드를 토스 웹뷰에 얹는 구조라, 네이티브에서는 신경 쓸 일이 없던 것들이 한꺼번에 문제가 됐다.\n\n- 첫 심사 반려 — 표시 이름·아이콘이 콘솔 등록값과 달라 맞춰서 재제출\n- 프로필 화면의 고정 픽셀 값을 화면 비율 기반으로 교체 — 기기 해상도마다 어긋나던 문제\n- 모든 패널을 보드와 같은 오프셋으로 정렬\n- 다음 조각 미리보기의 크기·세로 위치를 실기기 캡처 기준으로 보정\n- Unity 스플래시 스크린 제거\n- 닉네임 행 제거, vConsole 을 배포 빌드에서 제외",
+        "en": "Ported On The Line, previously an iOS title, to an Apps in Toss mini app and shipped the first build.\nIt runs as a Unity WebGL build inside the Toss webview, which surfaced a pile of problems that never came up on native.\n\n- Rejected on first review — display name and icon did not match the console registration, fixed and resubmitted\n- Fixed pixel values on the profile screen replaced with ratio-based layout, which had drifted across device resolutions\n- Every panel aligned to the same offset as the board\n- Size and vertical position of the next-piece preview retuned against real device captures\n- Unity splash screen turned off\n- Nickname row removed, vConsole excluded from release builds"
+      }
+    },
     {
       "id": "2026-08-16-worklog-system",
       "path": "content/journal/2026-08-16-worklog-system.md",
@@ -104,6 +190,31 @@
       "body": {
         "ko": "포트폴리오/이력서가 HTML 하드코딩이라 항목을 추가할 때마다 HTML·EN·KO 세 곳을 손봐야 했다.\n작업 히스토리처럼 매일 쌓이는 콘텐츠에는 못 버티는 구조라 데이터 레이어를 분리했다.\n\n- `content/**/*.md` 를 원본으로 하고 frontmatter + 본문 형식으로 통일\n- 한 파일 안에서 `<!-- lang:ko -->` / `<!-- lang:en -->` 마커로 두 언어를 같이 관리 — 한쪽만 갱신되는 desync 방지\n- 브라우저가 디렉터리를 못 읽는 문제는 `tools/build_index.py` 가 만든 `content/index.json` 번들로 해결\n- 비공개 일지는 `content-private/` 에 두고 gitignore, 공개 번들에서 제외",
         "en": "The portfolio and resume were hardcoded HTML, so adding one entry meant editing three places:\nthe markup plus both locale files. That does not survive a journal that grows daily, so the\ncontent moved into its own layer.\n\n- `content/**/*.md` is now the source of truth: frontmatter plus body\n- Both languages live in one file, split by `<!-- lang:ko -->` / `<!-- lang:en -->` markers, so they cannot drift apart\n- Browsers cannot list directories, so `tools/build_index.py` emits a `content/index.json` bundle\n- Private entries sit in `content-private/`, gitignored and excluded from the public bundle"
+      }
+    },
+    {
+      "id": "2026-03-13-ios-launch",
+      "path": "content/journal/2026-03-13-ios-launch.md",
+      "date": "2026-03-13",
+      "project": "on-the-line",
+      "title": {
+        "en": "Shipped On The Line 1.0 on the App Store",
+        "ko": "온더라인 1.0 App Store 출시"
+      },
+      "summary": {
+        "en": "First release of the 9×9 line puzzle — clear five identical pieces in a row.",
+        "ko": "9×9 판에서 같은 조각 5개를 한 줄로 모아 지우는 퍼즐의 첫 버전."
+      },
+      "tags": [
+        "Unity",
+        "iOS",
+        "App Store"
+      ],
+      "links": [],
+      "visibility": "public",
+      "body": {
+        "ko": "9×9 판에서 같은 조각을 5개 이상 한 줄로 모아 지우는 퍼즐 게임의 첫 버전을 냈다.\n\n- 조각을 고르고 빈 칸을 고르면 그리로 이동 — 경로는 상하좌우로만 뚫리고, 막히면 갈 수 없음\n- 많이 지울수록 가파르게 오르는 `n × (n−4)` 점수 곡선 — 5개 5점, 8개 32점\n- 연속 제거마다 배수가 붙는 콤보(`1 << 콤보 수`)와, 스폰된 조각이 저절로 줄을 맞추는 럭키 클리어\n- 스폰 뒤 자동으로 터지는 체인도 콤보로 누적\n- 리워드 광고를 봐야 쓸 수 있는 되돌리기 — 실수 하나로 판이 무너지는 게 가장 큰 진입장벽이라 여기에 배치\n- Unity 6 / URP 2D, il2cpp 빌드",
+        "en": "Shipped the first version: clear five or more identical pieces in a line on a 9×9 board.\n\n- Pick a piece, pick an empty cell, and it walks there — the path only opens up, down, left, and right, and a blocked route is unavailable\n- An `n × (n−4)` scoring curve that pays off steeply for bigger clears — five pieces score 5, eight score 32\n- A combo multiplier (`1 << combo`) on consecutive clears, plus lucky clears when spawned pieces complete a line on their own\n- Chains that resolve after a spawn keep feeding the combo\n- Undo behind a rewarded ad — a single misplaced move can collapse a board, the sharpest edge for new players\n- Built on Unity 6 with URP 2D and il2cpp"
       }
     }
   ],

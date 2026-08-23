@@ -68,17 +68,34 @@
       flex-shrink: 0;
     }
 
+    /* 화면이 여러 장이라 좌우로 넘겨 본다. 한 장씩 딱 맞게 멈추도록 스냅을 건다. */
     .screenshots-grid {
       display: flex;
+      flex-wrap: nowrap;
       gap: var(--space-4);
       margin-bottom: var(--space-12);
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x proximity;
+      padding-bottom: var(--space-3);
+      -webkit-overflow-scrolling: touch;
     }
 
     .screenshots-grid img {
-      flex: 1;
-      max-width: 320px;
+      flex: 0 0 auto;
+      width: 240px;
+      scroll-snap-align: start;
       border-radius: var(--radius-lg);
       border: 1px solid var(--color-border);
+    }
+
+    .screenshots-grid::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .screenshots-grid::-webkit-scrollbar-thumb {
+      background: var(--color-border);
+      border-radius: 4px;
     }
 
     @media (max-width: 640px) {
@@ -131,8 +148,10 @@
             <h1>On The Line: Puzzle Game</h1>
             <p style="margin-bottom: 0;" data-i18n="otl.tagline.line1">Move, Line Up, And Clear!</p>
             <p data-i18n="otl.tagline.line2">Simple yet addictive line puzzle game!</p>
+            <div class="skill-tags" id="project-tags" style="margin: var(--space-5) 0 var(--space-6);"></div>
             <div class="game-hero-links">
               <a href="https://apps.apple.com/app/id6760333150" target="_blank" rel="noopener noreferrer" class="game-link" data-i18n="games.appstore">App Store</a>
+              <a href="https://minion.toss.im/j7201NV" target="_blank" rel="noopener noreferrer" class="game-link">Apps in Toss</a>
               <a href="/life/on-the-line/privacy.html" class="game-link" data-i18n="games.privacy">Privacy Policy</a>
               <a href="/life/on-the-line/support.html" class="game-link" data-i18n="games.support">Support</a>
             </div>
@@ -141,10 +160,27 @@
       </div>
 
       <div class="screenshots-grid">
-        <img src="/life/on-the-line/IMG_5281.PNG" alt="On The Line gameplay">
-        <img src="/life/on-the-line/IMG_5283.PNG" alt="On The Line combo">
-        <img src="/life/on-the-line/IMG_5284.PNG" alt="On The Line game over">
+        <img src="/life/on-the-line/IMG_5281.PNG" alt="Fruits gameplay">
+        <img src="/life/on-the-line/IMG_5283.PNG" alt="Combo clear">
+        <img src="/life/on-the-line/toss-ingame-desserts.png" alt="Dessert Party piece set in play">
+        <img src="/life/on-the-line/IMG_5284.PNG" alt="Game over">
+        <img src="/life/on-the-line/toss-menu.png" alt="In-game menu">
+        <img src="/life/on-the-line/toss-start.png" alt="Start screen">
+        <img src="/life/on-the-line/toss-profile.png" alt="Profile with lifetime records">
+        <img src="/life/on-the-line/toss-pieceset-locked.png" alt="Piece set list">
+        <img src="/life/on-the-line/toss-mission.png" alt="Unlock conditions for the Dessert Party set">
+        <img src="/life/on-the-line/toss-pieceset-unlocked.png" alt="Dessert Party unlocked">
+        <img src="/life/on-the-line/toss-records.png" alt="Top score records">
       </div>
+
+      <!--
+        작업 내역은 content/journal/*.md 에서 읽어온다.
+        /work/journal/ 과 같은 원본·같은 렌더러를 쓰므로 두 곳이 어긋나지 않는다.
+      -->
+      <section class="section" id="journal-section" style="padding-top: 0;" hidden>
+        <hr class="divider">
+        <div id="journal-root"></div>
+      </section>
 
     </div>
   </main>
@@ -159,6 +195,33 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/i18n.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="/js/content.js"></script>
+  <script>
+    const PROJECT_ID = document.querySelector('meta[name="content-project"]').content;
+
+    // 태그는 content/projects/on-the-line.md 하나만 보고 그린다.
+    // 여기에 직접 쓰면 포폴 카드·프로젝트 상세와 어긋난다.
+    async function renderProject() {
+      const idx = await Content.index();
+      const project = (idx.projects || []).find(p => p.id === PROJECT_ID);
+      if (project) {
+        document.getElementById('project-tags').innerHTML =
+          project.tags.map(t => `<span class="tag">${Content.escapeHtml(t)}</span>`).join('');
+      }
+
+      // 이 페이지가 곧 프로젝트 페이지라, 항목마다 프로젝트 이름을 다시 붙이지 않는다.
+      const entries = Content.journalFor(idx, PROJECT_ID);
+      if (!entries.length) return;
+      const root = document.getElementById('journal-root');
+      root.innerHTML = `<div class="timeline">${
+        entries.map(e => Content.entryHtml(e, { showProject: false })).join('')}</div>`;
+      Content.bindEntryToggles(root);
+      document.getElementById('journal-section').hidden = false;
+    }
+
+    // 언어가 바뀌면 다시 그린다 (i18n.js 가 적용 후 이 이벤트를 쏜다).
+    document.addEventListener('i18n:applied', renderProject);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

@@ -5,15 +5,12 @@
   "nav.portfolio": "포트폴리오",
   "nav.journal": "작업 히스토리",
   "nav.life": "Life",
-
   "hero.name": "이종원",
   "hero.tagline": "소프트웨어 엔지니어",
   "hero.bio": "모바일 게임부터 백엔드 시스템까지, 다양한 소프트웨어를 만들고 있습니다. 한국 기반.",
-
   "home.section.work": "Work",
   "home.section.life": "Life",
   "life.subtitle": "업무 외에 만드는 게임과 활동들",
-
   "home.section.title": "둘러보기",
   "home.card.resume.title": "이력서",
   "home.card.resume.desc": "경력, 학력, 기술 스택.",
@@ -21,84 +18,67 @@
   "home.card.portfolio.desc": "개발한 프로젝트 모음.",
   "home.card.games.title": "게임",
   "home.card.games.desc": "출시한 모바일 게임들.",
-
   "resume.title": "이력서",
   "resume.subtitle": "경력, 학력, 기술 스택",
   "resume.section.experience": "경력",
   "resume.section.education": "학력",
   "resume.section.skills": "기술",
   "resume.download": "PDF 다운로드",
-
   "resume.section.links": "링크",
   "resume.empty": "아직 등록된 항목이 없습니다.",
-
   "portfolio.title": "포트폴리오",
   "portfolio.subtitle": "설계하고 개발한 프로젝트들",
   "portfolio.details": "자세히",
   "portfolio.empty": "아직 등록된 프로젝트가 없습니다.",
-
   "journal.title": "작업 히스토리",
   "journal.subtitle": "프로젝트별 작업 히스토리",
   "journal.filter.all": "전체",
   "journal.empty": "아직 작성된 기록이 없습니다.",
   "journal.private": "비공개",
-
   "project.journal": "작업 히스토리",
   "project.notfound": "프로젝트를 찾을 수 없습니다.",
   "project.status.active": "진행 중",
   "project.status.completed": "완료",
   "project.status.paused": "보류",
   "project.status.archived": "보관",
-
   "otl.tagline.line1": "움직이고, 줄 세워서, 클리어하라!",
   "otl.tagline.line2": "간단하지만 중독적인 라인 퍼즐 게임!",
-
   "games.title": "게임",
   "games.subtitle": "출시한 모바일 게임들",
   "games.appstore": "앱 스토어",
   "games.privacy": "개인정보처리방침",
   "games.support": "지원",
-
   "privacy.title": "개인정보처리방침",
   "privacy.updated": "최종 업데이트",
   "privacy.intro": "On The Line을 이용해 주셔서 감사합니다. 본 개인정보처리방침은 앱 사용 시 정보가 어떻게 수집, 이용, 공개될 수 있는지 설명합니다.",
-
   "privacy.collect.title": "수집하는 정보",
   "privacy.collect.body1": "이름, 이메일 주소, 전화번호, 주소 등 개인 식별 정보는 수집하지 않습니다.",
   "privacy.collect.body2": "단, 앱 내에서 사용되는 제3자 서비스를 통해 일부 정보가 자동으로 수집될 수 있습니다.",
-
   "privacy.collect.ads.title": "광고 데이터",
   "privacy.collect.ads.body": "앱은 광고 표시를 위해 Google AdMob을 사용합니다. AdMob은 광고 서비스 제공 및 개선을 위해 다음을 포함한 정보를 수집할 수 있습니다:",
   "privacy.collect.ads.item1": "기기 식별자 (광고 식별자 / IDFA 등)",
   "privacy.collect.ads.item2": "표시된 광고에 관한 정보",
   "privacy.collect.ads.item3": "광고 관련 앱 상호작용",
   "privacy.collect.ads.footer": "이 데이터는 기기 설정 및 권한에 따라 맞춤형 또는 비맞춤형 광고 제공에 사용될 수 있습니다.",
-
   "privacy.collect.diag.title": "앱 진단 및 성능 데이터",
   "privacy.collect.diag.body": "앱의 안정성과 성능 향상을 위해 다음을 포함한 익명의 기술 정보를 수집할 수 있습니다:",
   "privacy.collect.diag.item1": "충돌 보고서",
   "privacy.collect.diag.item2": "성능 데이터",
   "privacy.collect.diag.item3": "기기 유형 및 운영체제 버전",
   "privacy.collect.diag.footer": "이 정보는 개인 사용자를 식별하는 데 사용되지 않습니다.",
-
   "privacy.tracking.title": "앱 추적 투명성 (iOS)",
   "privacy.tracking.body1": "iOS 기기에서는 Apple의 앱 추적 투명성 프레임워크를 통해 다른 회사의 앱 및 웹사이트에서의 활동 추적 권한을 요청할 수 있습니다.",
   "privacy.tracking.body2": "추적을 허용하지 않도록 선택하더라도 앱은 정상적으로 작동하지만, 광고의 관련성이 낮아질 수 있습니다.",
-
   "privacy.thirdparty.title": "제3자 서비스",
   "privacy.thirdparty.body1": "앱은 귀하를 식별하는 데 사용될 수 있는 정보를 수집하는 제3자 서비스를 이용합니다.",
   "privacy.thirdparty.body2": "해당 서비스는 다음과 같습니다:",
   "privacy.thirdparty.body3": "자세한 내용은 Google의 개인정보처리방침을 확인하세요:",
-
   "privacy.children.title": "아동의 개인정보",
   "privacy.children.body": "앱은 아동의 개인 식별 정보를 의도적으로 수집하지 않습니다. 아동이 앱을 통해 개인정보를 제공했다고 판단되는 경우, 당사에 연락해 주시면 즉시 삭제하겠습니다.",
-
   "privacy.changes.title": "개인정보처리방침 변경",
   "privacy.changes.body": "개인정보처리방침은 수시로 업데이트될 수 있습니다. 변경 사항은 업데이트된 날짜와 함께 이 페이지에 게시됩니다.",
-
   "privacy.contact.title": "문의하기",
   "privacy.contact.body": "본 개인정보처리방침에 관한 문의사항이 있으시면 아래 이메일로 연락해 주세요:",
-
   "support.title": "지원",
   "support.subtitle": "무엇을 도와드릴까요?",
   "support.welcome": "On The Line 지원 페이지에 오신 것을 환영합니다.",
@@ -113,7 +93,6 @@
   "support.contact.info.version": "앱 버전 (선택)",
   "support.contact.info.device": "기기 정보 (선택)",
   "support.contact.response": "최대한 빠르게 답변 드리겠습니다.",
-
   "support.howto.title": "플레이 방법",
   "support.howto.goal": "게임의 목표는 간단합니다: 오브젝트를 연결해 제거하고 점수를 획득하세요.",
   "support.howto.rules.title": "기본 규칙",
@@ -125,13 +104,11 @@
   "support.howto.undo.title": "이동 되돌리기",
   "support.howto.undo.body": "실수를 했다면 마지막 이동을 되돌릴 수 있습니다.",
   "support.howto.undo.how": "화면 좌측 상단의 뒤로 가기 화살표를 탭하고 보상형 광고를 시청하면 이전 이동을 취소할 수 있습니다.",
-
   "support.scoring.title": "점수 시스템",
   "support.scoring.intro": "오브젝트가 제거될 때, 점수는 연결된 오브젝트 수에 따라 결정됩니다.",
   "support.scoring.formula.label": "n개의 오브젝트가 제거될 때:",
   "support.scoring.table.cleared": "제거된 오브젝트",
   "support.scoring.table.score": "점수",
-
   "support.combo.title": "콤보 시스템",
   "support.combo.intro": "연속으로 오브젝트를 제거하면 콤보 배율이 적용됩니다.",
   "support.combo.formula.label": "콤보 배율 공식:",
@@ -141,14 +118,12 @@
   "support.combo.row1": "1콤보",
   "support.combo.row2": "2콤보",
   "support.combo.row3": "3콤보",
-
   "support.lucky.title": "럭키 클리어 🍀",
   "support.lucky.intro": "가끔 무작위로 생성된 오브젝트 3개가 우연히 줄을 이루어 자동으로 제거될 수 있습니다.",
   "support.lucky.when": "이때:",
   "support.lucky.item1": "동일한 점수 규칙이 적용됩니다",
   "support.lucky.item2": "콤보 배율도 적용됩니다",
   "support.lucky.end": "럭키!",
-
   "support.examples.title": "점수 예시",
   "support.examples.ex1.title": "기본 클리어",
   "support.examples.ex1.desc": "오브젝트 5개 제거",
@@ -162,23 +137,19 @@
   "support.examples.ex4.title": "빅 콤보",
   "support.examples.ex4.desc": "3콤보로 오브젝트 9개 제거",
   "support.examples.ex4.result": "360점",
-
   "support.gameover.title": "게임 오버",
   "support.gameover.intro": "다음 상황에서 게임이 종료됩니다:",
   "support.gameover.item1": "오브젝트를 이동했을 때",
   "support.gameover.item2": "새 랜덤 오브젝트가 추가되어야 하는데",
   "support.gameover.item3": "보드에 빈 공간이 없을 때",
   "support.gameover.end": "이 상황이 되면 게임이 종료됩니다.",
-
   "support.protip.title": "프로 팁",
   "support.protip.body": "더 긴 줄을 제거하고 콤보를 연결하는 것이 고득점을 달성하는 가장 빠른 방법입니다.",
-
   "support.outro.title": "이제 당신의 차례입니다",
   "support.outro.line1": "수를 계획하세요.",
   "support.outro.line2": "콤보를 만드세요.",
   "support.outro.line3": "이전 최고 점수를 갱신하세요.",
   "support.outro.cta": "지금 바로 기록을 깨세요. 🚀",
-
   "footer.rights": "All rights reserved.",
   "footer.privacy": "개인정보처리방침",
   "footer.contact": "문의"

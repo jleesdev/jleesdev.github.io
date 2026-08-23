@@ -5,15 +5,12 @@
   "nav.portfolio": "Portfolio",
   "nav.journal": "History",
   "nav.life": "Life",
-
   "hero.name": "Jongwon Lee",
   "hero.tagline": "Software Engineer",
   "hero.bio": "I build software — from mobile games to backend systems. Based in Korea.",
-
   "home.section.work": "Work",
   "home.section.life": "Life",
   "life.subtitle": "Games and things I make outside of work",
-
   "home.section.title": "Explore",
   "home.card.resume.title": "Resume",
   "home.card.resume.desc": "Work experience, education, and skills.",
@@ -21,84 +18,67 @@
   "home.card.portfolio.desc": "Projects and things I've built.",
   "home.card.games.title": "Games",
   "home.card.games.desc": "Mobile games I've made and published.",
-
   "resume.title": "Resume",
   "resume.subtitle": "Experience, education, and skills",
   "resume.section.experience": "Experience",
   "resume.section.education": "Education",
   "resume.section.skills": "Skills",
   "resume.download": "Download PDF",
-
   "resume.section.links": "Links",
   "resume.empty": "Nothing here yet.",
-
   "portfolio.title": "Portfolio",
   "portfolio.subtitle": "Things I've designed and built",
   "portfolio.details": "Details",
   "portfolio.empty": "No projects yet.",
-
   "journal.title": "Work History",
   "journal.subtitle": "What I worked on, by project",
   "journal.filter.all": "All",
   "journal.empty": "No entries yet.",
   "journal.private": "Private",
-
   "project.journal": "Work History",
   "project.notfound": "Project not found.",
   "project.status.active": "Active",
   "project.status.completed": "Completed",
   "project.status.paused": "Paused",
   "project.status.archived": "Archived",
-
   "otl.tagline.line1": "Move, Line Up, And Clear!",
   "otl.tagline.line2": "Simple yet addictive line puzzle game!",
-
   "games.title": "Games",
   "games.subtitle": "Mobile games I've published",
   "games.appstore": "App Store",
   "games.privacy": "Privacy Policy",
   "games.support": "Support",
-
   "privacy.title": "Privacy Policy",
   "privacy.updated": "Last updated",
   "privacy.intro": "Thank you for using On The Line. This Privacy Policy explains how information may be collected, used, and disclosed when you use the application.",
-
   "privacy.collect.title": "Information We Collect",
   "privacy.collect.body1": "We do not collect personal information such as your name, email address, phone number, or address.",
   "privacy.collect.body2": "However, the app may collect certain information automatically through third-party services used within the app.",
-
   "privacy.collect.ads.title": "Advertising Data",
   "privacy.collect.ads.body": "Our app uses Google AdMob to display advertisements. AdMob may collect certain information to provide and improve advertising services, including:",
   "privacy.collect.ads.item1": "Device identifiers (such as the advertising identifier / IDFA)",
   "privacy.collect.ads.item2": "Information about advertisements shown",
   "privacy.collect.ads.item3": "App interaction related to ads",
   "privacy.collect.ads.footer": "This data may be used to provide personalized or non-personalized ads depending on your device settings and permissions.",
-
   "privacy.collect.diag.title": "App Diagnostics and Performance Data",
   "privacy.collect.diag.body": "We may collect anonymous technical information to improve the app's stability and performance, including:",
   "privacy.collect.diag.item1": "Crash reports",
   "privacy.collect.diag.item2": "Performance data",
   "privacy.collect.diag.item3": "Device type and operating system version",
   "privacy.collect.diag.footer": "This information is not used to identify individual users.",
-
   "privacy.tracking.title": "App Tracking Transparency (iOS)",
   "privacy.tracking.body1": "On iOS devices, the app may request permission to track your activity across apps and websites owned by other companies using Apple's App Tracking Transparency framework.",
   "privacy.tracking.body2": "If you choose not to allow tracking, the app will still function normally, but ads may be less relevant.",
-
   "privacy.thirdparty.title": "Third-Party Services",
   "privacy.thirdparty.body1": "The app uses third-party services that may collect information used to identify you.",
   "privacy.thirdparty.body2": "These services include:",
   "privacy.thirdparty.body3": "For more information, please review Google's privacy policy:",
-
   "privacy.children.title": "Children's Privacy",
   "privacy.children.body": "The app does not knowingly collect personally identifiable information from children. If you believe that a child has provided personal information through the app, please contact us and we will promptly remove such information.",
-
   "privacy.changes.title": "Changes to This Privacy Policy",
   "privacy.changes.body": "We may update our Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.",
-
   "privacy.contact.title": "Contact Us",
   "privacy.contact.body": "If you have any questions about this Privacy Policy, you may contact us at:",
-
   "support.title": "Support",
   "support.subtitle": "How can we help you?",
   "support.welcome": "Welcome to the On The Line support page.",
@@ -113,7 +93,6 @@
   "support.contact.info.version": "App Version (optional)",
   "support.contact.info.device": "Device Info (optional)",
   "support.contact.response": "We will respond as soon as possible.",
-
   "support.howto.title": "How to Play",
   "support.howto.goal": "The goal of the game is simple: connect objects and clear them to score points.",
   "support.howto.rules.title": "Basic Rules",
@@ -125,13 +104,11 @@
   "support.howto.undo.title": "Undo Move",
   "support.howto.undo.body": "If you make a mistake, you can undo your last move.",
   "support.howto.undo.how": "Tap the back arrow at the top-left corner and watch a rewarded ad to undo your previous action.",
-
   "support.scoring.title": "Scoring System",
   "support.scoring.intro": "When objects are cleared, the score depends on how many objects are connected.",
   "support.scoring.formula.label": "If n objects are cleared:",
   "support.scoring.table.cleared": "Objects Cleared",
   "support.scoring.table.score": "Score",
-
   "support.combo.title": "Combo System",
   "support.combo.intro": "When objects are cleared in consecutive moves, a combo multiplier is applied.",
   "support.combo.formula.label": "Combo multiplier formula:",
@@ -141,14 +118,12 @@
   "support.combo.row1": "1 combo",
   "support.combo.row2": "2 combo",
   "support.combo.row3": "3 combo",
-
   "support.lucky.title": "Lucky Clear 🍀",
   "support.lucky.intro": "Sometimes the 3 randomly spawned objects may accidentally form a line and clear automatically.",
   "support.lucky.when": "When this happens:",
   "support.lucky.item1": "The same scoring rules apply",
   "support.lucky.item2": "The combo multiplier also applies",
   "support.lucky.end": "Lucky!",
-
   "support.examples.title": "Score Examples",
   "support.examples.ex1.title": "Basic Clear",
   "support.examples.ex1.desc": "Clear 5 objects",
@@ -162,23 +137,19 @@
   "support.examples.ex4.title": "Big Combo",
   "support.examples.ex4.desc": "Clear 9 objects with a 3 combo",
   "support.examples.ex4.result": "360 points",
-
   "support.gameover.title": "Game Over",
   "support.gameover.intro": "The game ends when:",
   "support.gameover.item1": "You move an object",
   "support.gameover.item2": "New random objects must appear",
   "support.gameover.item3": "But there is no empty space left on the board",
   "support.gameover.end": "When that happens, the game is over.",
-
   "support.protip.title": "Pro Tip",
   "support.protip.body": "Clearing larger lines and chaining combos is the fastest way to achieve high scores.",
-
   "support.outro.title": "Now it's your turn",
   "support.outro.line1": "Plan your moves.",
   "support.outro.line2": "Create combos.",
   "support.outro.line3": "Beat your previous high score.",
   "support.outro.cta": "Now go break your record. 🚀",
-
   "footer.rights": "All rights reserved.",
   "footer.privacy": "Privacy Policy",
   "footer.contact": "Contact"
