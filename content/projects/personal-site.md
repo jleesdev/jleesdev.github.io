@@ -7,7 +7,7 @@ summary_ko: 이 사이트. GitHub Pages 위에 올린 정적 포트폴리오 겸
 period_en: 2026 – Present
 period_ko: 2026 – 현재
 status: active
-showcase: true
+showcase: false
 order: 2
 tags: [HTML, CSS, JavaScript, GitHub Pages]
 links:
