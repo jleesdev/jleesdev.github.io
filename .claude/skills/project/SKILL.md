@@ -59,10 +59,55 @@ Project description shown on the detail page.
 - `showcase: true` 인 프로젝트만 포트폴리오 페이지에 나온다. 히스토리만 쌓고 공개는 안 할 프로젝트는 `false`
 - `order` 는 정렬 순서(작을수록 먼저). 기존 값과 겹치지 않게 잡는다
 - `summary` 는 카드에 그대로 노출되므로 한 문장으로 짧게
+- `page` (선택): 프로젝트 전용 페이지 경로. 넣으면 포트폴리오 카드가 공용 상세
+  (`/work/project/?id=`) 대신 그 페이지로 간다. 없으면 공용 상세로 간다
+- `icon` (선택): 앱 아이콘 경로. **아이콘이 있는 프로젝트는 반드시 넣는다** — 카드 제목 옆에
+  56×56 으로 붙어 목록에서 한눈에 구분된다. 없으면 카드에 아이콘 자리를 만들지 않는다
+- `summary` 의 줄바꿈은 `\n` 으로 쓴다. frontmatter 파서가 한 줄짜리 `key: value` 라
+  실제 개행을 담지 못해서, 카드가 그릴 때 `<br>` 로 바꾼다
 
-그 프로젝트 전용 페이지가 따로 있다면(예: `life/on-the-line/`) 그 HTML `<head>` 에
-`<meta name="content-project" content="<project-id>">` 를 넣는다. nav 의 히스토리 아이콘이
-그 프로젝트의 히스토리로 바로 가게 된다.
+```markdown
+page: /life/on-the-line/
+icon: /life/on-the-line/ontheline_logo_strawberry.png
+summary_ko: 움직이고, 줄 세워서, 클리어하라!\n간단하지만 중독적인 라인 퍼즐 게임!
+```
+
+**포트폴리오 카드에는 링크를 두지 않는다.** 카드 전체가 `page`(또는 공용 상세)로 가는 하나의
+링크다. 작업 히스토리도 외부 링크도 이동한 페이지에서 보여준다 — 카드에 링크가 늘어나면
+어디를 눌러야 할지 흐려지고, 중첩 `<a>` 는 HTML 상으로도 성립하지 않는다.
+
+**설명에는 게임/제품 자체를 쓴다.** 어디에 배포했는지, 무엇으로 만들었는지처럼 **태그가 이미
+말해주는 것은 설명에서 뺀다.** 포팅·출시 같은 작업 이야기는 `history` 스킬로 일지에 남긴다.
+
+## 프로젝트 전용 페이지
+
+`life/on-the-line/` 처럼 직접 만든 페이지가 있는 프로젝트는 세 군데를 연결한다.
+
+1. **md 에** `page: /life/on-the-line/` — 포트폴리오 카드가 그쪽을 가리키게 한다
+2. **그 HTML `<head>` 에** `<meta name="content-project" content="<project-id>">` —
+   nav 의 히스토리(시계) 아이콘이 그 프로젝트의 히스토리로 바로 간다
+3. **그 페이지 본문에** md 내용을 직접 쓰지 말고 `content/index.json` 에서 읽어 그린다.
+   포폴 카드·공용 상세와 같은 원본을 봐야 셋이 어긋나지 않는다:
+
+```html
+<script src="/js/content.js"></script>
+<script>
+  const PROJECT_ID = document.querySelector('meta[name="content-project"]').content;
+  async function renderProjectAbout() {
+    const idx = await Content.index();
+    const project = (idx.projects || []).find(p => p.id === PROJECT_ID);
+    if (!project) return;
+    document.getElementById('project-about-body').innerHTML =
+      `<div class="md-body">${Content.markdown(Content.pick(project.body))}</div>`
+      + Content.renderTags(project.tags);
+    document.getElementById('project-about').hidden = false;
+  }
+  document.addEventListener('i18n:applied', renderProjectAbout);
+</script>
+```
+
+`build_index.py` 의 `collect_projects` 는 필드를 화이트리스트로 뽑는다. frontmatter 에
+새 키를 더해도 거기 추가하지 않으면 `index.json` 에 안 실린다.
 
 ## 수정
 
